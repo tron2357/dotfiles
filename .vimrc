@@ -1,0 +1,662 @@
+"" .vimrc
+if has('vim_starting')
+  set nocompatible               " Be iMproved
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+
+" 整形 easy-alignは使い方がよくわからない
+"NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tsaleh/vim-align'
+
+" undo redo
+NeoBundle 'sjl/gundo.vim'
+
+" 高速なack-grep
+NeoBundle 'mileszs/ack.vim'
+
+" ファイルリネーム
+NeoBundle 'vim-scripts/renamer.vim'
+
+" フォルダツリー
+NeoBundle 'scrooloose/nerdtree'
+
+" \rで実行
+NeoBundle 'thinca/vim-quickrun'
+
+" アスキーアート作成
+NeoBundle 'vim-scripts/DrawIt'
+
+
+" 保存時の構文チェッカ
+" javascriptなら npm で jshint 入れておけばOK
+NeoBundle 'scrooloose/syntastic'
+
+" javascript
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'jQuery'
+NeoBundle 'jelera/vim-javascript-syntax'
+
+
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+"
+"" http://vim-scripts.org/vim/scripts.html
+"" コード整形
+"Bundle 'Align'
+"
+"" perl的な正規表現
+"Bundle 'eregex.vim'
+"
+"" タグ一覧
+"Bundle 'Tagbar'
+"
+"" ファイルツリー
+"Bundle 'The-NERD-tree'
+"
+"" AA的な図作成
+"Bundle 'DrawIt'
+"
+"" undoの履歴表示(need python)
+"Bundle 'Gundo'
+"
+"" mark行の表示
+"Bundle 'ShowMarks7'
+"
+"" 簡易実行
+"Bundle 'quickrun.vim'
+"
+"" 検索(need ruby)
+"Bundle 'Command-T'
+"
+"
+"
+"" 禅(need gvim?)
+""Bundle 'ZenCoding.vim'
+"Bundle 'mattn/zencoding-vim'
+"
+"" ファイルリネーム
+"Bundle 'renamer.vim'
+"
+
+
+"----------------------------------
+" 基本設定
+"
+
+
+" vim拡張モード
+set nocompatible
+
+" バックスペースで文字削除
+set bs=2
+
+" 検索などの履歴
+set viminfo+=n~/.viminfo
+
+" カーソル位置をバーに表示
+set ruler
+
+" nobackup
+set nobackup
+
+" zsh風のファイル名補完しない
+set nowildmenu
+
+" bash風なtabで補完候補を表示する
+set wildmode=longest,list
+
+" undo redo の回数
+set undolevels=1000
+
+" 全ファイルの自動改行禁止
+set textwidth=0
+
+" <C-a> で8進数として扱わない
+set nrformats-=octal
+
+" beep と画面フラッシュを消す(linux only)
+set novisualbell
+
+" 色付き表示
+syntax on
+
+" 行番号表示
+set number
+
+" タブと >> の幅はスペース４つ分
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4 
+
+" ビジュアルモードかどうか見せる
+set showmode
+
+" 自動字下げ
+set cindent
+
+" 括弧対応を強調
+set showmatch
+
+" 右下あたりに状態表示( 100G 等が出る )
+set showcmd
+
+" 括弧のパターン(追加すると % で対応に飛べる)
+"set matchpairs=<:>,(:),{:},[:]
+set matchpairs=(:),{:},[:]
+
+" アルファベットの切れ目で改行しないとか
+" その他 :h 'formatoptions' 参照
+" コメントをエンターとOのとき続けてコメント行にする
+set formatoptions=ro
+
+" 保存ヒストリ数
+set history=500
+
+
+" :set list 時の表示文字
+set listchars=eol:$,tab:>_
+
+set nolist
+set paste
+
+"----------------------------------
+" 検索関連
+"
+" 検索結果をハイライト表示
+set hlsearch
+
+" 検索文字に順次ヒット
+set incsearch
+
+" 大文字小文字の区別なし
+set noignorecase
+
+" 下までいったら循環して上に戻ってこない
+set nowrapscan
+
+" 検索結果を常に画面中央に表示
+map n nzz
+map N Nzz
+map * *zz
+map # #zz
+map g* g*zz
+map g# g#zz
+
+"----------------------------------
+" 文字コード関連
+" ファイル名や状態を常時表示
+set laststatus=2
+set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
+set fileencoding=utf-8
+
+"ステータスラインにファイルタイプ・文字コード・改行文字を表示
+" Powerlineで代用するため不要になった
+set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
+
+
+"---------------------------------
+" マクロ関連
+"
+" 折り返し行も見た目一行移動
+nnoremap j gj
+nnoremap k gk
+
+
+" ビジュアルモードからの検索と置換
+"選択した文字列を検索
+vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+"選択した文字列を置換
+vnoremap /s "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
+
+" key map
+map <Up> Hk
+map <Down> Lj
+map <Left> ^
+map <Right> $
+
+" 間違って押しやすいから
+map <C-@> <ESC>
+
+
+" 短縮入力のような
+ab #- ####----------------------------------------------------------------------------
+
+
+
+" 行、列のハイライト表示
+set cursorline
+"set cursorcolumn
+
+" フリーカーソル {block, insert, all, onemore}
+set virtualedit=all
+
+
+
+" 画面点滅を消す
+set novisualbell
+
+" vimで設定しておくと表示がおかしくなるため、linesなどは使用しないようにする
+" ウインドウサイズ lines:縦 columns:横
+"set lines=40
+"set columns=100
+
+" ウインドウ表示位置
+winpos 10 0
+
+" フォント設定
+set guifont=Ricty\ Bold\ 10
+
+" language messages en_US.UTF-8
+set background=light
+
+if has("win32")
+	" フォント設定
+	set guifont=VL_ゴシック:h10:cSHIFTJIS
+	set linespace=0
+	" beep と画面フラッシュを消す(windows only)
+	set vb t_vb=
+	" 日本語IMEoff
+	set imi=0 ims=0
+	
+	set lines=40
+	set columns=120
+endif
+
+" 保存しなくてもファイルを切り替えることができ
+" undo, redo の情報も保持させる
+set hidden
+
+
+" カーソルを点滅しないようにする
+set guicursor=a:blinkon0 
+
+
+" 色テーマ設定
+"colorscheme default
+"colorscheme desert
+"colorscheme darkblue
+"colorscheme delek 
+"colorscheme morning 
+"colorscheme torte
+"colorscheme evening
+colorscheme ron
+
+" デフォルトは guioptions=agimrLtT
+set guioptions=agimtT
+" ツールバーを消して起動
+set guioptions-=T
+
+" メニューバーを消して起動
+set guioptions-=m
+
+
+
+" ------------------------------------------------------------------------------
+" 配色のカスタマイズ
+" ------------------------------------------------------------------------------
+
+"" gnome-terminalの色設定で変えたほうが良い
+"" 赤地に白文字 
+"highlight search cterm=bold ctermfg=7 ctermbg=1 guifg=White guibg=Red
+"" 白地に赤文字
+"highlight todo cterm=bold ctermfg=1 ctermbg=8 guifg=Red guibg=White
+
+
+
+
+""""----------------------------------------------------------------------------
+""" 覚え書き
+""
+
+" そのファイル内のみに有効な設定
+" Javaファイルの場合( ts sts sw fdm 設定。 marker で {{{ }}} で折り畳み )
+" // vim:set tabstop=4:softtabstop=0:shiftwidth=4:foldmethod=marker
+
+
+" 一行に延々と書かれたHTMLファイルを見やすく改行( \n はごみが出力されるだけ)
+"  Carriage Return = \r, Line Feed = \n
+" :%s/\(<\/[^>]\+>\)/\1\r/g
+
+" 000..100 まで出力
+" :r! awk 'BEGIN{ for(i=0; i<=100; i++) printf("\%03d\n", i); }'
+
+" 空行削除(awk: NF １行のフィールド個数. NR 現在の行数. FS 区切り文字)
+" :%!awk 'NF > 0'
+" :%!sed -e '/^$/d'
+" :%g/^$/d
+" どれでもよい
+
+" \U 次の文字から \E までを大文字にするメタキャラクタ
+" 全てを大文字に置換( tr 'a-z' 'A-Z' のようなことをする )
+" :%s/\([a-z]\)/\U\1\E/g
+
+" \L 次の文字から \E までを小文字にするメタキャラクタ
+" 全てを小文字に置換( tr 'A-Z' 'a-z' のようなことをする )
+" :%s/\([A-Z]\)/\L\1\E/g
+
+" man の nmap をテキストにする
+" man nmap | col -bfx > nmap.man
+
+" HTML メールの本文を削除する
+" :% !sed -e '/<\(html\|HTML\)>/,/<\/\(html\|HTML\)>/d'
+
+" ヘルプ画面でのリンクの移動
+" <C-]> 移動し <C-t> で戻る
+
+" <TAB> を <SPACE> にする
+" :set expandtab とした後 :retab
+" スペースからタブへは戻せないみたい
+
+" 検索方法
+" /target\C -> target
+" /target\c -> [tT][aA][rR][gG][eE][tT]
+
+" 単語の切れ目で検索できる
+" /target\> -> aaa target bbb
+"			-> aaa targetbbb はヒットしない
+" /\<target -> aaa target bbb
+"			-> aaatarget bbb はヒットしない
+
+" オプションがどのファイルで設定されたかを表示
+" :verbose set tw 
+
+" インデントをスペースに置き換えたい
+" :set expandtab
+" とし、
+" :retab
+" で置き換えが可能。スペースからタブへはできないみたい
+
+" Windowsで再帰grep
+" :grep /S search_key target_file_or_directory
+"
+" Linuxで再帰grep
+" :grep -r search_key target_file_or_directory
+"
+" vim7内蔵のgrep
+" :vimgrep search_key file
+" 
+" grepの結果確認
+" :copen
+
+"Visual Studio で作成したファイルを開くと、ファイルの最初に ? が見えることがある。
+"これは、 :e ++enc=ucs-bom として開くとよい。
+"文字コードは、 UTF-8 で、 Byte Order Mark が付いているファイルという意味。
+
+
+
+" vimでrubyを便利に使う方法
+"
+" %で対応括弧へ飛ぶ方法。<C-X><C-O>で補完もできる
+" 1. gem install vim-ruby でvim-rubyインストール
+" 2. matchitをインストール http://www.vim.org/scripts/script.php?script_id=39
+"
+" rubyの構文チェックする方法
+" 1. $VIM/vimfiles/ftplugin に ruby.vim を作る。
+" 2. ruby.vim に、compiler ruby と書く。
+" map <F9> :make -c %<CR> としてから、<F9>押すと構文チェックができる。
+" エラーがあると、:cw でエラーが見え、該当個所へ飛べるようになる。
+" :cc [n]でn番目のエラー行にジャンプ
+" :cnで次のエラー行にジャンプ
+" :cNで前のエラー行にジャンプ
+" 
+"
+
+
+
+
+" pydictionの設定 omnifuncで保管機能が使えるようになる。
+" vimが+pythonでコンパイルされている必要有り。
+" 設定すると、*での単語指定がおかしくなるから使用しないことにする。
+"filetype plugin on
+"if has("win32")
+"	let g:pydiction_location = 'D:/app/vim72-kaoriya-w32j/vimfiles/ftplugin/pydiction/complete-dict'
+"endif
+"
+"let g:pydiction_menu_height = 20
+"
+"if has("autocmd")
+"	autocmd FileType python set complete+=k/D:/app/Vim/pydiction/pydiction iskeyword+=.,(
+"
+"endif "has"
+
+
+
+" ------------------------------------------------------------------------------
+" 拡張子ごとの個別設定
+" ------------------------------------------------------------------------------
+
+augroup MyGroup
+	autocmd!
+
+	" ruby settings
+	autocmd MyGroup BufNewFile,BufRead *.rb set filetype=ruby sw=2 ts=2 sts=2 nocindent autoindent
+	autocmd MyGroup BufNewFile,BufRead *.erb set filetype=eruby sw=2 ts=2 sts=2 nocindent autoindent
+
+	" python settings
+	autocmd MyGroup BufNewFile,BufRead *.py set filetype=python sw=4 ts=4 sts=4 nocindent autoindent
+
+	" java(android) settings
+	autocmd MyGroup BufNewFile,BufRead *.aidl set filetype=java
+
+	" javascript settings
+	autocmd MyGroup BufNewFile,BufRead *.js set filetype=javascript sw=2 ts=2 sts=2 et ai cin
+	autocmd MyGroup BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+	" gitit wiki(markdown)
+	autocmd MyGroup BufNewFile,BufRead *.page set filetype=mkd
+	autocmd MyGroup BufNewFile,BufRead *.md set filetype=mkd
+
+	" rest
+	autocmd MyGroup BufNewFile,BufRead *.rst set  filetype=rest expandtab sw=2 ts=2 sts=2
+	autocmd MyGroup BufNewFile,BufRead *.rest set filetype=rest expandtab sw=2 ts=2 sts=2
+	autocmd MyGroup BufNewFile,BufRead *.page set filetype=rest expandtab sw=2 ts=2 sts=2 
+
+	" yml(dotcloud)
+	autocmd MyGroup BufNewFile,BufRead *.yml set filetype=yaml expandtab sw=2 ts=2 sts=2 
+
+	" ios(objective-c)
+	autocmd MyGroup BufNewFile,BufRead *.m set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
+	autocmd MyGroup BufNewFile,BufRead *.h set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
+
+
+augroup END
+
+
+"" eclipseのxmlなどが赤くなりすぎて見づらいため使用しない
+"" スペースなどだけで終わる行をハイライト表示
+"augroup HighlightTrailingSpaces
+"  autocmd!
+"  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+"  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+"augroup END
+
+" ------------------------------------------------------------------------------
+" 新しくファイルを作ったときのテンプレ
+" ------------------------------------------------------------------------------
+
+augroup MyTemplate
+	autocmd!
+	autocmd BufNewFile *.py 0r $HOME/.vim/skel/python
+
+
+augroup END
+
+
+" ------------------------------------------------------------------------------
+" 保存時にシンタックスなどのチェック
+" ------------------------------------------------------------------------------
+
+" warn多いから面倒で使わなくなった
+"augroup MyCheck
+"	autocmd!
+"	autocmd BufWrite *.py w !pep8 %
+"augroup END
+
+
+
+" ------------------------------------------------------------------------------
+" 半角スペースが入ったファイル名もgfで開けるようにする
+" ------------------------------------------------------------------------------
+"set isfname+=32
+
+" ------------------------------------------------------------------------------
+" *.swpの出力先
+" ------------------------------------------------------------------------------
+"set directory=~/.vimswap
+
+" ------------------------------------------------------------------------------
+" Gundo用のツリー展開
+" ------------------------------------------------------------------------------
+nnoremap <F5> :GundoToggle<CR>
+
+" ------------------------------------------------------------------------------
+" NERDTreeのツリー展開
+" ------------------------------------------------------------------------------
+nnoremap <F6> :NERDTreeToggle<CR>
+
+" 表示しないもの
+let g:NERDTreeIgnore = ['.*.swp', '\~$', '\.pyc', '\.pyo', '\.class', '\.sqlite', '__pycache__', '.svn', '.git']
+
+" 0は半角文字(1は全角文字(三角など)は階層がわかりづらい)
+let g:NERDTreeDirArrows = 0
+
+" 隠しファイルも表示する
+let g:NERDTreeShowHidden = 1
+
+" 今開いているファイルをツリーから探す
+"nnoremap <F2> :NERDTreeFind<CR>
+
+" ------------------------------------------------------------------------------
+" Tagbar
+" ------------------------------------------------------------------------------
+let g:tagbar_left = 1
+nnoremap <F7> :TagbarToggle<CR>
+
+" ------------------------------------------------------------------------------
+" neocomplcache
+" ------------------------------------------------------------------------------
+" 勝手にnoautoindentされるため使わなくなった
+
+"let g:neocomplcache_enable_at_startup = 1
+
+
+" ------------------------------------------------------------------------------
+" showmarks7(マークの可視化)
+" ------------------------------------------------------------------------------
+let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+nnoremap <F8> :ShowMarksToggle<CR>
+
+
+" ------------------------------------------------------------------------------
+" 使い方メモ
+" ------------------------------------------------------------------------------
+
+" drawitの操作
+" \di 線の開始
+" \ds 線の停止
+
+" quickrunの実行
+" \r
+
+
+" コピーに付いて
+" viの削除したりコピーした文字をコマンド行で使用する
+" /<C-r>"
+" これはインサートモード時の入力でも使えるため
+" <C-r>+ でクリップボードを貼りつけ
+" <C-r>" で直近のレジスタ貼りつけとなる。
+
+
+" zen-coding
+" gvimだと <C-y>, で展開する(vimは動作しなかった)
+let g:user_zen_settings = {
+\  'php' : {
+\    'extends' : 'html',
+\    'filters' : 'c',
+\  },
+\  'xml' : {
+\    'extends' : 'html',
+\  },
+\  'haml' : {
+\    'extends' : 'html',
+\  },
+\}
+
+
+" Powerline
+" http://d.hatena.ne.jp/shim0mura/20120423/1335197161
+"
+" 1. フォントの生成
+" 2. t_Co=256などを.vimrcに追記する
+"
+" フォントの生成手順(転載)
+" $ sudo apt-get install fontforge
+" $ mv Ricty-Regular.ttf ./bundle/vim-powerline/fontpatcher
+" $ mv Ricty-Bold.ttf ./bundle/vim-powerline/fontpatcher
+" $ cd ./bundle/vim-powerline/fontpatcher
+" $ fontforge -lang=py -script fontpatcher Ricty-Regular.ttf
+" $ fontforge -lang=py -script fontpatcher Ricty-Bold.ttf
+" $ mv Ricty-Regular-Powerline.ttf ~/.fonts
+" $ mv Ricty-Bold-Powerline.ttf ~/.fonts
+" このときフォントキャッシュの更新などは不要だった
+"
+" 装飾付きになるが見づらいので使わない
+"let g:Powerline_symbols = 'fancy'
+" カラフルになる
+"set t_Co=256
+
+
+" ノーマルモード時に自動で日本語をオフに切り替える
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-japanese/ime-control#TOC-SCIM
+" im_cuntrol.vimを取得して、読み込ませれば動作することを確認した
+" ibus+python(ubuntu11.04)
+" 「日本語入力固定モード(常に日本語状態でインサートモードに入る)」切替キー
+inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
+" PythonによるIBus制御指定
+let IM_CtrlIBusPython = 1
+
+
+
+" 逆順(行)にする(tacと同じ)
+" :g/^/m0
+
+" 行を重複させる
+" :g/^/t.
+
+
+" vimのエスケープをしないで正規表現で検索する
+" /\v から始めるとOK
+" ex) /\v[0-9]+ のようにする
+
+
+" eregex settings
+" https://github.com/othree/eregex.vim
+"Default disable, put this line in vimrc:
+let g:eregex_default_enable = 0
+"Custom search delimeter:
+let g:eregex_forward_delim = '/'
+let g:eregex_backward_delim = '?'
+
+
+" javascript simple-javascript-indenter の設定
+" この設定入れるとshiftwidthを1にしてインデントしてくれる
+let g:SimpleJsIndenter_BriefMode = 1
+" この設定入れるとswitchのインデントがいくらかマシに
+let g:SimpleJsIndenter_CaseIndentLevel = -1
