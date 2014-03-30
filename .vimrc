@@ -15,9 +15,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 
-" 整形 easy-alignは使い方がよくわからない
-"NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'tsaleh/vim-align'
+" 整形
+NeoBundle 'junegunn/vim-easy-align'
+"NeoBundle 'tsaleh/vim-align'
 
 " undo redo
 NeoBundle 'sjl/gundo.vim'
@@ -29,7 +29,9 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'vim-scripts/renamer.vim'
 
 " フォルダツリー
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 
 " \rで実行
 NeoBundle 'thinca/vim-quickrun'
@@ -47,6 +49,8 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 
+" golang
+NeoBundle 'jnwhiteh/vim-golang'
 
 
 " Required:
@@ -55,45 +59,6 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
-"
-"" http://vim-scripts.org/vim/scripts.html
-"" コード整形
-"Bundle 'Align'
-"
-"" perl的な正規表現
-"Bundle 'eregex.vim'
-"
-"" タグ一覧
-"Bundle 'Tagbar'
-"
-"" ファイルツリー
-"Bundle 'The-NERD-tree'
-"
-"" AA的な図作成
-"Bundle 'DrawIt'
-"
-"" undoの履歴表示(need python)
-"Bundle 'Gundo'
-"
-"" mark行の表示
-"Bundle 'ShowMarks7'
-"
-"" 簡易実行
-"Bundle 'quickrun.vim'
-"
-"" 検索(need ruby)
-"Bundle 'Command-T'
-"
-"
-"
-"" 禅(need gvim?)
-""Bundle 'ZenCoding.vim'
-"Bundle 'mattn/zencoding-vim'
-"
-"" ファイルリネーム
-"Bundle 'renamer.vim'
-"
 
 
 "----------------------------------
@@ -241,7 +206,7 @@ ab #- ####----------------------------------------------------------------------
 
 
 " 行、列のハイライト表示
-set cursorline
+"set cursorline
 "set cursorcolumn
 
 " フリーカーソル {block, insert, all, onemore}
@@ -529,7 +494,13 @@ nnoremap <F5> :GundoToggle<CR>
 " ------------------------------------------------------------------------------
 " NERDTreeのツリー展開
 " ------------------------------------------------------------------------------
-nnoremap <F6> :NERDTreeToggle<CR>
+"nnoremap <F6> :NERDTreeToggle<CR>
+
+" ------------------------------------------------------------------------------
+" VimFilerのツリー展開
+" ------------------------------------------------------------------------------
+nnoremap <F6> :VimFilerExplorer<CR>
+
 
 " 表示しないもの
 let g:NERDTreeIgnore = ['.*.swp', '\~$', '\.pyc', '\.pyo', '\.class', '\.sqlite', '__pycache__', '.svn', '.git']
