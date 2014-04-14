@@ -66,6 +66,7 @@ setopt complete_aliases
 
 # alias
 alias ll='ls -l'
+alias l='ls -l'
 alias rm='trash'
 #alias ack='ack-grep'
 alias vi='vim'

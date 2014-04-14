@@ -52,6 +52,8 @@ NeoBundle 'jelera/vim-javascript-syntax'
 " golang
 NeoBundle 'jnwhiteh/vim-golang'
 
+" markdown
+NeoBundle 'tyru/open-browser.vim'
 
 " Required:
 filetype plugin indent on
@@ -411,8 +413,8 @@ augroup MyGroup
 	autocmd!
 
 	" ruby settings
-	autocmd MyGroup BufNewFile,BufRead *.rb set filetype=ruby sw=2 ts=2 sts=2 nocindent autoindent
-	autocmd MyGroup BufNewFile,BufRead *.erb set filetype=eruby sw=2 ts=2 sts=2 nocindent autoindent
+	autocmd MyGroup BufNewFile,BufRead *.rb  set filetype=ruby  et sw=2 ts=2 sts=2 nocindent autoindent
+	autocmd MyGroup BufNewFile,BufRead *.erb set filetype=eruby et sw=2 ts=2 sts=2 nocindent autoindent
 
 	" python settings
 	autocmd MyGroup BufNewFile,BufRead *.py set filetype=python sw=4 ts=4 sts=4 nocindent autoindent
@@ -425,8 +427,8 @@ augroup MyGroup
 	autocmd MyGroup BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 	" gitit wiki(markdown)
-	autocmd MyGroup BufNewFile,BufRead *.page set filetype=mkd
-	autocmd MyGroup BufNewFile,BufRead *.md set filetype=mkd
+	autocmd MyGroup BufNewFile,BufRead *.page set filetype=markdown
+	autocmd MyGroup BufNewFile,BufRead *.md set filetype=markdown
 
 	" rest
 	autocmd MyGroup BufNewFile,BufRead *.rst set  filetype=rest expandtab sw=2 ts=2 sts=2
@@ -631,3 +633,9 @@ let g:eregex_backward_delim = '?'
 let g:SimpleJsIndenter_BriefMode = 1
 " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+
+
+"markdown
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = { 'outputter':'browser', 'command':'markdown' }

@@ -1,0 +1,31 @@
+
+set show-id = yes
+#set vertical-split = yes
+
+#set vertical-split = no # default
+#set split-view-height = 80%
+
+set show-author = full
+set show-refs = true
+set show-rev-graph = true
+set show-date = local
+
+# yes: cant open editor
+#set line-number-interval = 1
+#set show-line-numbers = no
+#set editor-line-number = no
+
+set line-graphics = ascii
+set show-file-size = units
+set horizontal-scroll = 20%
+
+
+# keybind
+bind generic G move-last-line
+bind generic g move-first-line
+
+bind generic b none
+bind main b view-branch
+bind tree b view-blame
+
+bind main v view-tree
