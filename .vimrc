@@ -458,12 +458,12 @@ augroup END
 " 新しくファイルを作ったときのテンプレ
 " ------------------------------------------------------------------------------
 
-augroup MyTemplate
-	autocmd!
-	autocmd BufNewFile *.py 0r $HOME/.vim/skel/python
-
-
-augroup END
+"augroup MyTemplate
+"	autocmd!
+"	autocmd BufNewFile *.py 0r $HOME/.vim/skel/python
+"
+"
+"augroup END
 
 
 " ------------------------------------------------------------------------------
