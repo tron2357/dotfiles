@@ -639,3 +639,11 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 "markdown
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = { 'outputter':'browser', 'command':'markdown' }
+
+
+
+" vimdiff
+hi DiffAdd    ctermfg=black ctermbg=2
+hi DiffChange ctermfg=black ctermbg=3
+hi DiffDelete ctermfg=black ctermbg=6
+hi DiffText   ctermfg=black ctermbg=7
