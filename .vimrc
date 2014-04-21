@@ -442,6 +442,8 @@ augroup MyGroup
 	autocmd MyGroup BufNewFile,BufRead *.m set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
 	autocmd MyGroup BufNewFile,BufRead *.h set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
 
+	" bats
+	autocmd MyGroup BufNewFile,BufRead *.bats set filetype=sh sw=2 ts=2 sts=2 et nocindent autoindent
 
 augroup END
 
@@ -647,3 +649,8 @@ hi DiffAdd    ctermfg=black ctermbg=2
 hi DiffChange ctermfg=black ctermbg=3
 hi DiffDelete ctermfg=black ctermbg=6
 hi DiffText   ctermfg=black ctermbg=7
+
+" syntastic 構文チェックするかどうかの指定
+let g:syntastic_mode_map = {'mode':'active',
+  \ 'active_filetypes':['python', 'ruby'],
+  \ 'passive_filetypes':['sh']}
