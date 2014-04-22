@@ -108,3 +108,7 @@ setopt pushd_ignore_dups
 # ここではデフォルトのセットから / を抜いたものとする
 # こうすると、 Ctrl-W でカーソル前の1単語を削除したとき、 / までで削除が止まる
 #WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+
+# golang gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
