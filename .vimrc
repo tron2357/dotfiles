@@ -107,10 +107,11 @@ syntax on
 " 行番号表示
 set number
 
-" タブと >> の幅はスペース４つ分
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4 
+" tabは2スペース
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2 
+set expandtab
 
 " ビジュアルモードかどうか見せる
 set showmode
