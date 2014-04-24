@@ -110,5 +110,5 @@ setopt pushd_ignore_dups
 #WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 
-# golang gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# read local env
+[[ -s $HOME/.sh_local ]] && source $HOME/.sh_local
