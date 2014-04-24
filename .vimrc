@@ -284,8 +284,8 @@ set guicursor=a:blinkon0
 "colorscheme delek 
 "colorscheme morning 
 "colorscheme torte
-"colorscheme evening
-colorscheme ron
+colorscheme evening
+"colorscheme ron
 
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
