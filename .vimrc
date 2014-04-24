@@ -45,9 +45,11 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'vim-scripts/renamer.vim'
 
 " フォルダツリー
-"NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+" 機能が多い割に希望する動作をしないため使用しない
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/vimfiler.vim'
 
 " \rで実行
 NeoBundle 'thinca/vim-quickrun'
@@ -70,6 +72,9 @@ NeoBundle 'jnwhiteh/vim-golang'
 
 " markdown
 NeoBundle 'tyru/open-browser.vim'
+
+" tagbar
+NeoBundle 'majutsushi/tagbar'
 
 " Required:
 filetype plugin indent on
@@ -504,6 +509,8 @@ augroup END
 
 " ------------------------------------------------------------------------------
 " *.swpの出力先
+"
+" 同名のファイルを編集中でも、*.swp *.swo など別のスワップファイルとして保持される
 " ------------------------------------------------------------------------------
 set directory=~/.vim
 
@@ -513,18 +520,13 @@ set directory=~/.vim
 nnoremap <F5> :GundoToggle<CR>
 
 " ------------------------------------------------------------------------------
-" NERDTreeのツリー展開
+" NERDTree
 " ------------------------------------------------------------------------------
-"nnoremap <F6> :NERDTreeToggle<CR>
-
-" ------------------------------------------------------------------------------
-" VimFilerのツリー展開
-" ------------------------------------------------------------------------------
-nnoremap <F6> :VimFilerExplorer<CR>
+nnoremap <F6> :NERDTreeToggle<CR>
 
 
 " 表示しないもの
-let g:NERDTreeIgnore = ['.*.swp', '\~$', '\.pyc', '\.pyo', '\.class', '\.sqlite', '__pycache__', '.svn', '.git']
+let g:NERDTreeIgnore = ['.*.swp', '\~$', '\.pyc', '\.pyo', '\.class', '\.sqlite', '__pycache__', '.svn/', '.git/']
 
 " 0は半角文字(1は全角文字(三角など)は階層がわかりづらい)
 let g:NERDTreeDirArrows = 0
@@ -532,8 +534,15 @@ let g:NERDTreeDirArrows = 0
 " 隠しファイルも表示する
 let g:NERDTreeShowHidden = 1
 
-" 今開いているファイルをツリーから探す
+" 今開いているファイルをツリーから探す <- 希望する動作ではないため使用しない
 "nnoremap <F2> :NERDTreeFind<CR>
+
+" ------------------------------------------------------------------------------
+" VimFiler
+" ------------------------------------------------------------------------------
+"nnoremap <F6> :VimFilerExplorer<CR>
+" vimfiler
+"let vimfiler_tree_opened_icon='>>'
 
 " ------------------------------------------------------------------------------
 " Tagbar
@@ -671,3 +680,4 @@ hi DiffText   ctermfg=black ctermbg=7
 let g:syntastic_mode_map = {'mode':'active',
   \ 'active_filetypes':['python', 'ruby'],
   \ 'passive_filetypes':['sh']}
+
