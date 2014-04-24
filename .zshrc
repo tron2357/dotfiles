@@ -111,4 +111,4 @@ setopt pushd_ignore_dups
 
 
 # read local env
-[[ -s $HOME/.sh_local ]] && source $HOME/.sh_local
+[[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local

@@ -1,4 +1,20 @@
 "" .vimrc
+
+" howto install NeoBundle
+"
+" 
+" Run below script:
+" 
+"   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+" 
+" or
+" 
+" Setup NeoBundle:
+" 
+"   mkdir -p ~/.vim/bundle
+"   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+" 
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
