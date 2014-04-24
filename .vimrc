@@ -526,7 +526,16 @@ nnoremap <F6> :NERDTreeToggle<CR>
 
 
 " 表示しないもの
-let g:NERDTreeIgnore = ['.*.swp', '\~$', '\.pyc', '\.pyo', '\.class', '\.sqlite', '__pycache__', '.svn/', '.git/']
+let g:NERDTreeIgnore = ['\.swp$', 
+  \ '\~$',
+  \ '\.pyc$',
+  \ '\.pyo$',
+  \ '\.class$',
+  \ '\.sqlite$',
+  \ '__pycache__',
+  \ '\.svn$',
+  \ '\.git$'
+  \ ]
 
 " 0は半角文字(1は全角文字(三角など)は階層がわかりづらい)
 let g:NERDTreeDirArrows = 0
