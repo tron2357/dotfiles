@@ -76,6 +76,25 @@ NeoBundle 'tyru/open-browser.vim'
 " tagbar
 NeoBundle 'majutsushi/tagbar'
 
+" unite
+NeoBundle 'Shougo/unite.vim'
+
+" use async generate ctags
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+      \ 'rev' : 'development',
+      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+      \ 'autoload' : {
+      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+      \   'unite_sources' : ['tags']
+      \ }}
+
+
 " Required:
 filetype plugin indent on
 
@@ -690,3 +709,31 @@ let g:syntastic_mode_map = {'mode':'active',
   \ 'active_filetypes':['python', 'ruby'],
   \ 'passive_filetypes':['sh']}
 
+
+" =============================================================================
+" use ruby
+" 
+" if,def,etc..-end を % でジャンプする
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
+
+
+" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
+" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
+let g:alpaca_update_tags_config = {
+      \ '_' : '-R --sort=yes --languages=-js,html,css',
+      \ 'ruby': '--languages=+Ruby',
+      \ }
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost * TagsUpdate ruby
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+  endif
+augroup END
+
+nnoremap <expr>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
