@@ -95,6 +95,9 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \ }}
 
 
+" memolist
+NeoBundle 'glidenote/memolist.vim'
+
 " Required:
 filetype plugin indent on
 
@@ -737,3 +740,20 @@ augroup AlpacaTags
 augroup END
 
 nnoremap <expr>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
+
+" memolist
+map ,n  :MemoNew<CR>
+map ,l  :MemoList<CR>
+map ,g  :MemoGrep<CR>
+
+"let g:memolist_path = "path/to/dir"
+"let g:memolist_memo_suffix = "txt"
+"let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+"let g:memolist_memo_date = "epoch"
+"let g:memolist_memo_date = "%D %T"
+"let g:memolist_prompt_tags = 1
+"let g:memolist_prompt_categories = 1
+"let g:memolist_qfixgrep = 1
+"let g:memolist_vimfiler = 1
+"let g:memolist_template_dir_path = "path/to/dir"
+
