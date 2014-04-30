@@ -746,7 +746,7 @@ map ,n  :MemoNew<CR>
 map ,l  :MemoList<CR>
 map ,g  :MemoGrep<CR>
 
-"let g:memolist_path = "path/to/dir"
+let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_memo_suffix = "txt"
 "let g:memolist_memo_date = "%Y-%m-%d %H:%M"
 "let g:memolist_memo_date = "epoch"
