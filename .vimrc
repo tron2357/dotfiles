@@ -272,10 +272,11 @@ set novisualbell
 winpos 10 0
 
 " フォント設定
-set guifont=Ricty\ Bold\ 10
+set guifont=Ricty\ 10
+
 
 " language messages en_US.UTF-8
-set background=light
+"set background=light
 
 if has("win32")
 	" フォント設定
@@ -757,3 +758,5 @@ let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_vimfiler = 1
 "let g:memolist_template_dir_path = "path/to/dir"
 
+" 複数のタグがあるとき確認できるようにする
+nnoremap <C-]> g<C-]>
