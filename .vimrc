@@ -98,6 +98,9 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
 " memolist
 NeoBundle 'glidenote/memolist.vim'
 
+" json
+NeoBundle 'elzr/vim-json'
+
 " Required:
 filetype plugin indent on
 
