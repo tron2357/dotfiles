@@ -79,20 +79,21 @@ NeoBundle 'majutsushi/tagbar'
 " unite
 NeoBundle 'Shougo/unite.vim'
 
-" use async generate ctags
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-      \ 'rev' : 'development',
-      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-      \   'unite_sources' : ['tags']
-      \ }}
+" エラー出るから使わない
+"" use async generate ctags
+"NeoBundle 'Shougo/vimproc', {
+"      \ 'build' : {
+"      \     'mac' : 'make -f make_mac.mak',
+"      \     'unix' : 'make -f make_unix.mak',
+"      \    },
+"      \ }
+"NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+"      \ 'rev' : 'development',
+"      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+"      \ 'autoload' : {
+"      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+"      \   'unite_sources' : ['tags']
+"      \ }}
 
 
 " memolist
@@ -727,12 +728,12 @@ if !exists('loaded_matchit')
 endif
 
 
-" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
-" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
-let g:alpaca_update_tags_config = {
-      \ '_' : '-R --sort=yes --languages=-js,html,css',
-      \ 'ruby': '--languages=+Ruby',
-      \ }
+"" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
+"" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
+"let g:alpaca_update_tags_config = {
+"      \ '_' : '-R --sort=yes --languages=-js,html,css',
+"      \ 'ruby': '--languages=+Ruby',
+"      \ }
 
 augroup AlpacaTags
   autocmd!
