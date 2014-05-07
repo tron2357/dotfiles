@@ -776,3 +776,8 @@ nnoremap <C-]> g<C-]>
 
 " 閉じ括弧やendの補完
 call smartinput_endwise#define_default_rules()
+
+" ESCのとき早く抜ける
+set timeout
+set timeoutlen=1000
+set ttimeoutlen=70
