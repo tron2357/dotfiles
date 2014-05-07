@@ -50,6 +50,7 @@ NeoBundle 'scrooloose/nerdtree'
 " 機能が多い割に希望する動作をしないため使用しない
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/vimfiler.vim'
+"NeoBundle 'tpope/vim-endwise'
 
 " \rで実行
 NeoBundle 'thinca/vim-quickrun'
@@ -79,28 +80,35 @@ NeoBundle 'majutsushi/tagbar'
 " unite
 NeoBundle 'Shougo/unite.vim'
 
-" エラー出るから使わない
-"" use async generate ctags
-"NeoBundle 'Shougo/vimproc', {
-"      \ 'build' : {
-"      \     'mac' : 'make -f make_mac.mak',
-"      \     'unix' : 'make -f make_unix.mak',
-"      \    },
-"      \ }
-"NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-"      \ 'rev' : 'development',
-"      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-"      \ 'autoload' : {
-"      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-"      \   'unite_sources' : ['tags']
-"      \ }}
-
-
 " memolist
 NeoBundle 'glidenote/memolist.vim'
 
 " json
 NeoBundle 'elzr/vim-json'
+
+" rubyでend補完
+" TODO 動くように修正する
+NeoBundle "kana/vim-smartinput"
+NeoBundle "cohama/vim-smartinput-endwise"
+
+
+
+" TODO linuxで保存時にエラーが出るから確認する
+" use async generate ctags
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+      \ 'rev' : 'development',
+      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+      \ 'autoload' : {
+      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+      \   'unite_sources' : ['tags']
+      \ }}
+
 
 " Required:
 filetype plugin indent on
@@ -764,3 +772,7 @@ let g:memolist_path = "~/Dropbox/memo"
 
 " 複数のタグがあるとき確認できるようにする
 nnoremap <C-]> g<C-]>
+
+
+" 閉じ括弧やendの補完
+call smartinput_endwise#define_default_rules()
