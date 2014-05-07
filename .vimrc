@@ -93,21 +93,21 @@ NeoBundle "cohama/vim-smartinput-endwise"
 
 
 
-" TODO linuxで保存時にエラーが出るから確認する
-" use async generate ctags
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-      \ 'rev' : 'development',
-      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-      \   'unite_sources' : ['tags']
-      \ }}
+"" TODO linuxで保存時にエラーが出るから確認する
+"" use async generate ctags
+"NeoBundle 'Shougo/vimproc', {
+"      \ 'build' : {
+"      \     'mac' : 'make -f make_mac.mak',
+"      \     'unix' : 'make -f make_unix.mak',
+"      \    },
+"      \ }
+"NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+"      \ 'rev' : 'development',
+"      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+"      \ 'autoload' : {
+"      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+"      \   'unite_sources' : ['tags']
+"      \ }}
 
 
 " Required:
