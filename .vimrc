@@ -91,6 +91,8 @@ NeoBundle 'elzr/vim-json'
 NeoBundle "kana/vim-smartinput"
 NeoBundle "cohama/vim-smartinput-endwise"
 
+" sudoするとuniteが毎回エラー表示する分の対策
+NeoBundle "vim-scripts/sudo.vim"
 
 
 "" TODO linuxで保存時にエラーが出るから確認する
