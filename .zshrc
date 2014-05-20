@@ -72,7 +72,7 @@ alias rm='trash'
 alias vi='vim'
 alias info='info --vi-keys'
 
-export EDITOR='vi'
+export EDITOR=vim
 
 #改行のない出力をプロンプトで上書きするのを防ぐ
 unsetopt promptcr
