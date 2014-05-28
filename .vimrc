@@ -94,6 +94,7 @@ NeoBundle "cohama/vim-smartinput-endwise"
 " sudoするとuniteが毎回エラー表示する分の対策
 NeoBundle "vim-scripts/sudo.vim"
 
+NeoBundle 't9md/vim-chef'
 
 "" TODO linuxで保存時にエラーが出るから確認する
 "" use async generate ctags
