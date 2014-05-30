@@ -94,6 +94,10 @@ NeoBundle "cohama/vim-smartinput-endwise"
 " sudoするとuniteが毎回エラー表示する分の対策
 NeoBundle "vim-scripts/sudo.vim"
 
+" インデントの色付け
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
 "" TODO linuxで保存時にエラーが出るから確認する
@@ -784,3 +788,10 @@ call smartinput_endwise#define_default_rules()
 set timeout
 set timeoutlen=1000
 set ttimeoutlen=70
+
+
+" vim7.4からundoを保存する.un~ファイルが出来るためまとめる
+set undodir=~/.vim
+
+" jsonでconcealが有効だと"を消したりして使いづらいため無効にする
+let g:vim_json_syntax_conceal = 0
