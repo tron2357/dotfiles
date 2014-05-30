@@ -94,8 +94,11 @@ NeoBundle "cohama/vim-smartinput-endwise"
 " sudoするとuniteが毎回エラー表示する分の対策
 NeoBundle "vim-scripts/sudo.vim"
 
-" インデントの色付け
+" インデントの色付け (動かない)
 "NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" インデントの色付け(concealを使ったもの)
+NeoBundle 'Yggdroot/indentLine'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
