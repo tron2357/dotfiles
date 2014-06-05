@@ -87,37 +87,42 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'elzr/vim-json'
 
 " rubyでend補完
-" TODO 動くように修正する
-NeoBundle "kana/vim-smartinput"
-NeoBundle "cohama/vim-smartinput-endwise"
+" gvimだと機能する
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'cohama/vim-smartinput-endwise'
 
 " sudoするとuniteが毎回エラー表示する分の対策
-NeoBundle "vim-scripts/sudo.vim"
+NeoBundle 'vim-scripts/sudo.vim'
 
-" インデントの色付け (動かない)
+" インデント(gvimだと動くが、indentLineと同じで行間が抜けている)
 "NeoBundle 'nathanaelkane/vim-indent-guides'
-
-" インデントの色付け(concealを使ったもの)
+" インデント(concealを使ったものでvimでも動く)
 NeoBundle 'Yggdroot/indentLine'
+
+" バイナリエディタ
+NeoBundle 'Shougo/vinarise.vim'
+
+" visualモードで*検索
+NeoBundle 'thinca/vim-visualstar'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
-"" TODO linuxで保存時にエラーが出るから確認する
-"" use async generate ctags
-"NeoBundle 'Shougo/vimproc', {
-"      \ 'build' : {
-"      \     'mac' : 'make -f make_mac.mak',
-"      \     'unix' : 'make -f make_unix.mak',
-"      \    },
-"      \ }
-"NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-"      \ 'rev' : 'development',
-"      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-"      \ 'autoload' : {
-"      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-"      \   'unite_sources' : ['tags']
-"      \ }}
+" TODO linuxで保存時にエラーが出るから確認する
+" use async generate ctags
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+      \ 'rev' : 'development',
+      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+      \ 'autoload' : {
+      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+      \   'unite_sources' : ['tags']
+      \ }}
 
 
 " Required:
@@ -251,6 +256,8 @@ set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\
 nnoremap j gj
 nnoremap k gk
 
+" 一つ前のバッファを開く
+nnoremap <C-j> <C-^>
 
 " ビジュアルモードからの検索と置換
 "選択した文字列を検索
@@ -746,12 +753,12 @@ if !exists('loaded_matchit')
 endif
 
 
-"" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
-"" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
-"let g:alpaca_update_tags_config = {
-"      \ '_' : '-R --sort=yes --languages=-js,html,css',
-"      \ 'ruby': '--languages=+Ruby',
-"      \ }
+" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
+" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
+let g:alpaca_update_tags_config = {
+      \ '_' : '-R --sort=yes --languages=-js,html,css',
+      \ 'ruby': '--languages=+Ruby',
+      \ }
 
 augroup AlpacaTags
   autocmd!
@@ -784,8 +791,6 @@ let g:memolist_path = "~/Dropbox/memo"
 nnoremap <C-]> g<C-]>
 
 
-" 閉じ括弧やendの補完
-call smartinput_endwise#define_default_rules()
 
 " ESCのとき早く抜ける
 set timeout
@@ -798,3 +803,10 @@ set undodir=~/.vim
 
 " jsonでconcealが有効だと"を消したりして使いづらいため無効にする
 let g:vim_json_syntax_conceal = 0
+
+" 
+call smartinput_endwise#define_default_rules()
+
+" *検索で移動しない
+nnoremap * *N
+nnoremap # #N

@@ -71,6 +71,7 @@ alias rm='trash'
 #alias ack='ack-grep'
 alias vi='vim'
 alias info='info --vi-keys'
+alias ren='vim -c Renamer'
 
 export EDITOR=vim
 
