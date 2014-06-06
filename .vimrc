@@ -102,8 +102,6 @@ NeoBundle 'Yggdroot/indentLine'
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
 
-" visualモードで*検索
-NeoBundle 'thinca/vim-visualstar'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
