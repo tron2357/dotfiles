@@ -808,3 +808,10 @@ call smartinput_endwise#define_default_rules()
 " *検索で移動しない
 nnoremap * *N
 nnoremap # #N
+
+
+" ビジュアルモードの選択部分のみ置換する
+" 通常の s ではなく :s とする
+" 1. 選択する
+" 2. '<,'>:s/\%Vaaa/bbb/g
+
