@@ -102,11 +102,15 @@ NeoBundle 'Yggdroot/indentLine'
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
 
+" rails
+NeoBundle 'tpope/vim-rails'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
 " TODO linuxで保存時にエラーが出るから確認する
+" -> vimをコンパイルし直すとエラーが出なくなった。
+" -> aptitude build-dep vim と lua 有効にしたため？
 " use async generate ctags
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
