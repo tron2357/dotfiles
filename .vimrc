@@ -102,13 +102,15 @@ NeoBundle 'Yggdroot/indentLine'
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
 
-" visualモードで*検索
-NeoBundle 'thinca/vim-visualstar'
+" rails
+NeoBundle 'tpope/vim-rails'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
 " TODO linuxで保存時にエラーが出るから確認する
+" -> vimをコンパイルし直すとエラーが出なくなった。
+" -> aptitude build-dep vim と lua 有効にしたため？
 " use async generate ctags
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -810,3 +812,10 @@ call smartinput_endwise#define_default_rules()
 " *検索で移動しない
 nnoremap * *N
 nnoremap # #N
+
+
+" ビジュアルモードの選択部分のみ置換する
+" 通常の s ではなく :s とする
+" 1. 選択する
+" 2. '<,'>:s/\%Vaaa/bbb/g
+
