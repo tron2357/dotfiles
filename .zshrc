@@ -113,3 +113,25 @@ setopt pushd_ignore_dups
 
 # read local env
 [[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local
+
+
+# jpg表示
+alias find_jpg="find . -type f -iname \"*.jpg\""
+
+# jpgのexif情報などを削除(TODO: 何故かサイズが大きくなることがあるため調査する)
+alias find_jpg_strip="find_jpg -exec echo {} \; -exec mogrify -strip {} \;"
+
+# jpg以外のファイル一覧を表示
+alias find_not_jpg="find . -type f -not -name \"*.jpg\""
+
+# jpg以外のファイルをjpgに変換する
+alias find_not_jpg_convert="find_not_jpg -exec echo {} \; -exec mogrify -format jpg {} \; -exec rm {} \;"
+
+# 広告的なゴミファイルを表示したり削除したり
+alias find_gomi_jpg="find . \( -type f -iname \"*credit*\" -or -iname \"*core*\" -or -name \"*vslc*\" -or -iname \"zfpage.jpg\" \)"
+alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
+
+# htmlやexeのようなゴミファイルを表示したり削除したり
+alias find_gomi_not_jpg="find_not_jpg" 
+alias find_gomi_not_jpg_rm="find_gomi_not_jpg -exec echo \"delete {}\" \; -exec rm {} \;" 
+
