@@ -105,6 +105,11 @@ NeoBundle 'Shougo/vinarise.vim'
 " rails
 NeoBundle 'tpope/vim-rails'
 
+" color
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'tomasr/molokai'
+
+
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
@@ -684,7 +689,7 @@ let g:user_zen_settings = {
 " 装飾付きになるが見づらいので使わない
 "let g:Powerline_symbols = 'fancy'
 " カラフルになる
-"set t_Co=256
+set t_Co=256
 
 
 " ノーマルモード時に自動で日本語をオフに切り替える
