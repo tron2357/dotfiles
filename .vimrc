@@ -340,11 +340,12 @@ set guicursor=a:blinkon0
 "colorscheme default
 "colorscheme desert
 "colorscheme darkblue
-colorscheme delek
+"colorscheme delek
 "colorscheme morning 
 "colorscheme torte
 "colorscheme evening
 "colorscheme ron
+colorscheme molokai
 
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
