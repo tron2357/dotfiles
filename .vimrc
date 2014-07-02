@@ -690,7 +690,7 @@ let g:user_zen_settings = {
 " 装飾付きになるが見づらいので使わない
 "let g:Powerline_symbols = 'fancy'
 " カラフルになる
-set t_Co=256
+"set t_Co=256
 
 
 " ノーマルモード時に自動で日本語をオフに切り替える
