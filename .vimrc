@@ -825,3 +825,6 @@ nnoremap # #N
 " 1. 選択する
 " 2. '<,'>:s/\%Vaaa/bbb/g
 
+
+" 画面分割時に間違って:onlyしてしまうのを抑制
+map <C-w>o <ESC>
