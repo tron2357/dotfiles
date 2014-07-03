@@ -97,7 +97,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 " インデント(gvimだと動くが、indentLineと同じで行間が抜けている)
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 " インデント(concealを使ったものでvimでも動く)
-NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'Yggdroot/indentLine'
 
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
