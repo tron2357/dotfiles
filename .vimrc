@@ -828,3 +828,5 @@ nnoremap # #N
 
 " 画面分割時に間違って:onlyしてしまうのを抑制
 map <C-w>o <ESC>
+
+set conceallevel=0
