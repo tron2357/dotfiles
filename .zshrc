@@ -11,10 +11,22 @@ promptinit
 prompt walters
 
 
+# TODO: 設定を見直す http://mollifier.hatenablog.com/entry/20100906/p1
+
 # add git branch name
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+
+autoload -Uz is-at-least
+if is-at-least 4.3.10; then
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr "(staged)"    # 適当な文字列に変更する
+  zstyle ':vcs_info:git:*' unstagedstr "(modified)"  # 適当の文字列に変更する
+  zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
+  zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
+fi
+
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
