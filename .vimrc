@@ -830,3 +830,10 @@ nnoremap # #N
 map <C-w>o <ESC>
 
 set conceallevel=0
+
+
+" brew でインストールした macvim が spotlight に表示されるように変更する
+" 1. brew install macvim
+" 2. Finderで /usr/local/Cellar/macvim/7.3.64 から MacVim.app をアプリケーションへ移動する
+" 3. ln -s /Applications/MacVim.app /usr/local/Cellar/macvim/7.3.64/
+" 以上
