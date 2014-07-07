@@ -140,7 +140,7 @@ alias find_not_jpg="find . -type f -not -name \"*.jpg\""
 alias find_not_jpg_convert="find_not_jpg -exec echo {} \; -exec mogrify -format jpg {} \; -exec rm {} \;"
 
 # 広告的なゴミファイルを表示したり削除したり
-alias find_gomi_jpg="find . \( -type f -iname \"*credit*\" -or -iname \"*core*\" -or -name \"*vslc*\" -or -iname \"zfpage.jpg\" \)"
+alias find_gomi_jpg="find . -type f -and \( -iname \"*credit*\" -or -iname \"*core*\" -or -iname \"*vslc*\" -or -iname \"zfpage.jpg\" -or -iname \"*.net.*\" -or -iname \"*Untitled*\" \)"
 alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
 
 # htmlやexeのようなゴミファイルを表示したり削除したり
