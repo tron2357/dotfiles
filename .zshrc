@@ -9,6 +9,7 @@ compinit
 autoload -U promptinit
 promptinit
 prompt walters
+setopt print_exitvalue
 
 
 # TODO: 設定を見直す http://mollifier.hatenablog.com/entry/20100906/p1

@@ -109,6 +109,8 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'tomasr/molokai'
 
+" coffee script
+NeoBundle 'kchmck/vim-coffee-script'
 
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
