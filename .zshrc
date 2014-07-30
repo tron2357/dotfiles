@@ -35,8 +35,8 @@ precmd () {
 }
 RPROMPT=""
 PROMPT="
-%n@%m [%~] %1(v|%F{green}%1v%f|)
-$ "
+%n@%m [%~] (%D{%T}) %1(v|%F{green}%1v%f|)
+%(!.#.$)%f "
 
 # %n@%m
 
