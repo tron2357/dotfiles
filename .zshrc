@@ -156,3 +156,15 @@ alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;
 alias find_gomi_not_jpg="find_not_jpg" 
 alias find_gomi_not_jpg_rm="find_gomi_not_jpg -exec echo \"delete {}\" \; -exec rm {} \;" 
 
+# iterm tab
+iterm_tab_rename() {
+  echo -ne "\033]0;${1}\007"
+}
+iterm_tab_color() {
+    echo -ne "\033]6;1;bg;red;brightness;$1\a"
+    echo -ne "\033]6;1;bg;green;brightness;$2\a"
+    echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+}
+iterm_tab_color_reset() {
+    echo -ne "\033]6;1;bg;*;default\a"
+}
