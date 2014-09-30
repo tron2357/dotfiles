@@ -142,12 +142,13 @@ alias find_not_jpg_convert="find_not_jpg -exec echo {} \; -exec mogrify -format 
 
 # 広告的なゴミファイルを表示したり削除したり
 alias find_gomi_jpg="find . -type f \( \
-      -iname \"*credit*\" \
+      -iname \"*cred*\" \
   -or -iname \"*core*\" \
   -or -iname \"*vslc*\" \
   -or -iname \"*zfpage*\" \
   -or -iname \"*net*\" \
   -or -iname \"*untitled*\" \
+  -or -iname \"*kou1koku*\" \
   -or -iname \"*new_shoutout*\" \
   \)"
 alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
