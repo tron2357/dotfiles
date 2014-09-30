@@ -839,3 +839,12 @@ set conceallevel=0
 " 2. Finderで /usr/local/Cellar/macvim/7.3.64 から MacVim.app をアプリケーションへ移動する
 " 3. ln -s /Applications/MacVim.app /usr/local/Cellar/macvim/7.3.64/
 " 以上
+
+
+" golang
+" 1. go get github.com/nsf/gocode
+" 2. add .zshrc
+"   [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+"   export PATH="$GOPATH/bin:$PATH"
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
