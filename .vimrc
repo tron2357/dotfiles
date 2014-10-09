@@ -844,15 +844,16 @@ set conceallevel=0
 
 
 " golang
-" 1. go get github.com/nsf/gocode
+" 1. install go commands
+"    go get github.com/nsf/gocode
+"    go get github.com/golang/lint
+"    go get github.com/jstemmer/gotags
 " 2. add .zshrc
 "   [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 "   export PATH="$GOPATH/bin:$PATH"
 set rtp+=$GOROOT/misc/vim
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-
-" tagbar for golang. need gotags
-" go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
