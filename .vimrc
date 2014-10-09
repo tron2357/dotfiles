@@ -69,7 +69,7 @@ NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 
 " golang
-NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'fatih/vim-go'
 
 " markdown
 NeoBundle 'tyru/open-browser.vim'
@@ -841,7 +841,6 @@ set conceallevel=0
 " 1. brew install macvim
 " 2. Finderで /usr/local/Cellar/macvim/7.3.64 から MacVim.app をアプリケーションへ移動する
 " 3. ln -s /Applications/MacVim.app /usr/local/Cellar/macvim/7.3.64/
-" 以上
 
 
 " golang
@@ -851,3 +850,33 @@ set conceallevel=0
 "   export PATH="$GOPATH/bin:$PATH"
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
+" tagbar for golang. need gotags
+" go get -u github.com/jstemmer/gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
