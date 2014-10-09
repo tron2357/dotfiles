@@ -70,6 +70,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 
 " golang
 NeoBundle 'fatih/vim-go'
+NeoBundle 'dgryski/vim-godef'
 
 " markdown
 NeoBundle 'tyru/open-browser.vim'
@@ -881,3 +882,12 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" golangで<C-]>のタグジャンプ用tags作成
+" 1. go get github.com/jstemmer/gotags
+" 2. gotags -R > tags
+
+ 
+" golangでgd(vim-godef)でジャンプ(ウインドウ分割)(この紹介記事が多い)
+" 1. go get -v code.google.com/p/rog-go/exp/cmd/godef
+" 2. go install -v code.google.com/p/rog-go/exp/cmd/godef
