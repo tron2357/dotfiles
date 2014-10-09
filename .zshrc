@@ -81,10 +81,11 @@ setopt complete_aliases
 alias ll='ls -l'
 alias l='ls -l'
 alias rm='trash'
-#alias ack='ack-grep'
 alias vi='vim'
 alias info='info --vi-keys'
 alias ren='vim -c Renamer'
+
+which ack > /dev/null 2>&1 || alias ack='ack-grep'
 
 export EDITOR=vim
 
@@ -169,3 +170,6 @@ iterm_tab_color() {
 iterm_tab_color_reset() {
     echo -ne "\033]6;1;bg;*;default\a"
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
