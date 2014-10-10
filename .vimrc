@@ -891,3 +891,9 @@ let g:tagbar_type_go = {
 " golangでgd(vim-godef)でジャンプ(ウインドウ分割)(この紹介記事が多い)
 " 1. go get -v code.google.com/p/rog-go/exp/cmd/godef
 " 2. go install -v code.google.com/p/rog-go/exp/cmd/godef
+
+" godoc
+" go get code.google.com/p/go.tools/cmd/godoc
+" 
+" godocでローカルにドキュメント($GOPATH以下)を立てる
+" godoc -http=:8888
