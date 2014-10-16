@@ -23,7 +23,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -137,6 +137,8 @@ NeoBundle 't9md/vim-chef'
 "       \   'unite_sources' : ['tags']
 "       \ }}
 
+
+call neobundle#end()
 
 " Required:
 filetype plugin indent on
@@ -625,7 +627,7 @@ let g:NERDTreeShowHidden = 1
 " ------------------------------------------------------------------------------
 " Tagbar
 " ------------------------------------------------------------------------------
-let g:tagbar_left = 1
+"let g:tagbar_left = 1
 nnoremap <F7> :TagbarToggle<CR>
 
 " ------------------------------------------------------------------------------
@@ -821,8 +823,8 @@ set undodir=~/.vim
 " jsonでconcealが有効だと"を消したりして使いづらいため無効にする
 let g:vim_json_syntax_conceal = 0
 
-" 
-call smartinput_endwise#define_default_rules()
+" 何に使用しているか不明 TODO 後で削除する
+"call smartinput_endwise#define_default_rules()
 
 " *検索で移動しない
 nnoremap * *N
@@ -900,3 +902,6 @@ let g:tagbar_type_go = {
 " 
 " godocでローカルにドキュメント($GOPATH以下)を立てる
 " godoc -http=:8888
+
+" vim-go tagbar
+let g:go_gotags_bin=$GOPATH . "/bin/gotags"
