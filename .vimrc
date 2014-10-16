@@ -72,6 +72,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 
+" 括弧
+NeoBundle 'jiangmiao/auto-pairs'
+
 " markdown
 NeoBundle 'tyru/open-browser.vim'
 
@@ -120,19 +123,19 @@ NeoBundle 't9md/vim-chef'
 " -> vimをコンパイルし直すとエラーが出なくなった。
 " -> aptitude build-dep vim と lua 有効にしたため？
 " use async generate ctags
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-      \ 'rev' : 'development',
-      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-      \   'unite_sources' : ['tags']
-      \ }}
+" NeoBundle 'Shougo/vimproc', {
+"       \ 'build' : {
+"       \     'mac' : 'make -f make_mac.mak',
+"       \     'unix' : 'make -f make_unix.mak',
+"       \    },
+"       \ }
+" NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+"       \ 'rev' : 'development',
+"       \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+"       \ 'autoload' : {
+"       \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+"       \   'unite_sources' : ['tags']
+"       \ }}
 
 
 " Required:
