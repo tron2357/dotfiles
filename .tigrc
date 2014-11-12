@@ -7,3 +7,5 @@ bind main b view-refs
 bind tree b view-blame
 
 bind main v view-tree
+
+set tab-size = 4
