@@ -1,11 +1,13 @@
 # keybind
-bind generic G move-last-line
-bind generic g move-first-line
-
-bind generic b none
-bind main b view-refs
-bind tree b view-blame
-
-bind main v view-tree
+#bind generic G move-last-line
+#bind generic g move-first-line
+#
+#bind generic b none
+#bind main b view-refs
+#bind tree b view-blame
+#
+#bind main v view-tree
 
 set tab-size = 4
+bind main G !@hub browse -- commit/%(commit)
+bind diff G !@hub browse -- commit/%(commit)
