@@ -119,6 +119,9 @@ NeoBundle 'kchmck/vim-coffee-script'
 " TODO test-kitchenで使えるように修正する
 NeoBundle 't9md/vim-chef'
 
+" 軽量なpowerline
+NeoBundle 'bling/vim-airline'
+
 " TODO linuxで保存時にエラーが出るから確認する
 " -> vimをコンパイルし直すとエラーが出なくなった。
 " -> aptitude build-dep vim と lua 有効にしたため？
@@ -260,8 +263,8 @@ set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 set fileencoding=utf-8
 
 "ステータスラインにファイルタイプ・文字コード・改行文字を表示
-" Powerlineで代用するため不要になった
-set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
+" powerline使うときは不要
+"set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
 
 
 "---------------------------------
