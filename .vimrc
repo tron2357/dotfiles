@@ -536,7 +536,7 @@ augroup MyGroup
 	autocmd MyGroup BufNewFile,BufRead *.h set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
 
   " golang
-	autocmd MyGroup BufNewFile,BufRead *.go set filetype=go sw=2 ts=2 sts=2 cindent autoindent smartindent noet
+	autocmd MyGroup BufNewFile,BufRead *.go set filetype=go sw=4 ts=4 sts=4 cindent autoindent smartindent noet
 
 	" bats
 	autocmd MyGroup BufNewFile,BufRead *.bats set filetype=sh sw=2 ts=2 sts=2 et nocindent autoindent
