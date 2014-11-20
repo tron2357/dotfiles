@@ -922,10 +922,10 @@ let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 
 " Airline {{{1
 "let g:airline_section_a = airline#section#create(['mode','','branch'])
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_buffers = 0
+"let g:airline#extensions#tabline#tab_nr_type = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
 
 set guifont=Ricty\ Regular\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
