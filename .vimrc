@@ -355,8 +355,9 @@ set guicursor=a:blinkon0
 "colorscheme morning 
 "colorscheme torte
 "colorscheme evening
-colorscheme ron
-"colorscheme molokai
+"colorscheme ron
+colorscheme molokai
+"colorscheme railscasts
 
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
