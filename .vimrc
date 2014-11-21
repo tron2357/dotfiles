@@ -348,7 +348,7 @@ set guicursor=a:blinkon0
 
 
 " 色テーマ設定
-colorscheme default
+"colorscheme default
 "colorscheme desert
 "colorscheme darkblue
 "colorscheme delek
@@ -356,7 +356,7 @@ colorscheme default
 "colorscheme torte
 "colorscheme evening
 "colorscheme ron
-"colorscheme molokai
+colorscheme molokai
 "colorscheme railscasts
 "colorscheme pablo
 
