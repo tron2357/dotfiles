@@ -152,6 +152,7 @@ alias find_gomi_jpg="find . -type f \( \
   -or -iname \"*kou1koku*\" \
   -or -iname \"*new_shoutout*\" \
   -or -iname \"*_disclaimer*\" \
+  -or -iname \"*_soon.*\" \
   \)"
 alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
 
