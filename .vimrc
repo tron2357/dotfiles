@@ -348,7 +348,7 @@ set guicursor=a:blinkon0
 
 
 " 色テーマ設定
-"colorscheme default
+colorscheme default
 "colorscheme desert
 "colorscheme darkblue
 "colorscheme delek
@@ -358,7 +358,9 @@ set guicursor=a:blinkon0
 "colorscheme ron
 "colorscheme molokai
 "colorscheme railscasts
-colorscheme pablo
+"colorscheme pablo
+
+set bg=light
 
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
