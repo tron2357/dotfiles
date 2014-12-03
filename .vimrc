@@ -120,7 +120,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 't9md/vim-chef'
 
 " 軽量なpowerline
-NeoBundle 'bling/vim-airline'
+" カラフルで良いがmosh接続先で残像が残るため使用しない
+"NeoBundle 'bling/vim-airline'
 
 " TODO linuxで保存時にエラーが出るから確認する
 " -> vimをコンパイルし直すとエラーが出なくなった。
@@ -264,7 +265,7 @@ set fileencoding=utf-8
 
 "ステータスラインにファイルタイプ・文字コード・改行文字を表示
 " powerline使うときは不要
-"set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
+set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
 
 
 "---------------------------------
