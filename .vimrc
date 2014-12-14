@@ -357,7 +357,7 @@ set guicursor=a:blinkon0
 "colorscheme torte
 "colorscheme evening
 "colorscheme ron
-colorscheme molokai
+"colorscheme molokai
 "colorscheme railscasts
 "colorscheme pablo
 
