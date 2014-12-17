@@ -175,3 +175,18 @@ iterm_tab_color_reset() {
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# gud curl /v2/apps を見やすくパース
+# usage: gud curl /v2/apps | parse_guid
+parse_guid() {
+  echo "`cat -`" | jq -c '.resources[]|
+  {
+    guid: .metadata.guid,
+    name: .entity.name,
+    buildpack: .entity.detected_buildpack,
+    auto_update: .entity.auto_update,
+    state: .entity.state,
+    updated_at: .metadata.updated_at,
+    package_state: .entity.package_state
+  }'
+}
