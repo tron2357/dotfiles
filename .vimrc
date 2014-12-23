@@ -41,6 +41,11 @@ NeoBundle 'sjl/gundo.vim'
 " 高速なack-grep
 NeoBundle 'mileszs/ack.vim'
 
+" the_silver_searcher
+" mac:   brew install the_silver_searcher
+" linux: apt-get install silversearcher-ag
+NeoBundle 'rking/ag.vim'
+
 " ファイルリネーム
 NeoBundle 'vim-scripts/renamer.vim'
 
