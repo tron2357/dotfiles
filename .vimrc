@@ -41,6 +41,11 @@ NeoBundle 'sjl/gundo.vim'
 " 高速なack-grep
 NeoBundle 'mileszs/ack.vim'
 
+" the_silver_searcher
+" mac:   brew install the_silver_searcher
+" linux: apt-get install silversearcher-ag
+NeoBundle 'rking/ag.vim'
+
 " ファイルリネーム
 NeoBundle 'vim-scripts/renamer.vim'
 
@@ -513,6 +518,7 @@ augroup MyGroup
 	" ruby settings
 	autocmd MyGroup BufNewFile,BufRead *.rb  set filetype=ruby  et sw=2 ts=2 sts=2 nocindent autoindent
 	autocmd MyGroup BufNewFile,BufRead *.erb set filetype=eruby et sw=2 ts=2 sts=2 nocindent autoindent
+	autocmd MyGroup BufNewFile,BufRead .pryrc  set filetype=ruby  et sw=2 ts=2 sts=2 nocindent autoindent
 
 	" python settings
 	autocmd MyGroup BufNewFile,BufRead *.py set filetype=python sw=4 ts=4 sts=4 nocindent autoindent
