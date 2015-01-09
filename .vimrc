@@ -59,7 +59,9 @@ NeoBundle 'scrooloose/nerdtree'
 " 機能が多い割に希望する動作をしないため使用しない
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/vimfiler.vim'
-"NeoBundle 'tpope/vim-endwise'
+
+" rubyでend補完
+NeoBundle 'tpope/vim-endwise'
 
 " \rで実行
 NeoBundle 'thinca/vim-quickrun'
