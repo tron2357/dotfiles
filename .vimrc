@@ -15,8 +15,12 @@
 "   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 " 
 
+if &compatible
+  " nocompatibleのタイミングでhistoryがクリアされる
+  set nocompatible
+endif
+
 if has('vim_starting')
-  set nocompatible               " Be iMproved
 
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -77,11 +81,8 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 
-" 括弧
+" 括弧補完(gvimでしか動かない)
 NeoBundle 'jiangmiao/auto-pairs'
-
-" markdown
-NeoBundle 'tyru/open-browser.vim'
 
 " tagbar
 NeoBundle 'majutsushi/tagbar'
@@ -162,8 +163,6 @@ NeoBundleCheck
 "
 
 
-" vim拡張モード
-set nocompatible
 
 " バックスペースで文字削除
 set bs=2
@@ -186,7 +185,7 @@ set wildmode=longest,list
 " undo redo の回数
 set undolevels=1000
 
-" 全ファイルの自動改行禁止
+" ファイルの自動改行無効化
 set textwidth=0
 
 " <C-a> で8進数として扱わない
@@ -194,9 +193,6 @@ set nrformats-=octal
 
 " beep と画面フラッシュを消す(linux only)
 set novisualbell
-
-" 色付き表示
-syntax on
 
 " 行番号表示
 set number
@@ -236,7 +232,6 @@ set history=500
 set listchars=eol:$,tab:>_
 
 set nolist
-set paste
 
 "----------------------------------
 " 検索関連
@@ -254,12 +249,12 @@ set noignorecase
 set nowrapscan
 
 " 検索結果を常に画面中央に表示
-map n nzz
-map N Nzz
-map * *zz
-map # #zz
-map g* g*zz
-map g# g#zz
+noremap n nzz
+noremap N Nzz
+noremap * *zz
+noremap # #zz
+noremap g* g*zz
+noremap g# g#zz
 
 "----------------------------------
 " 文字コード関連
@@ -277,11 +272,11 @@ set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\
 " マクロ関連
 "
 " 折り返し行も見た目一行移動
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
 
 " 一つ前のバッファを開く
-nnoremap <C-j> <C-^>
+noremap <C-j> <C-^>
 
 " ビジュアルモードからの検索と置換
 "選択した文字列を検索
@@ -289,14 +284,9 @@ vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "選択した文字列を置換
 vnoremap /s "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
-" key map
-map <Up> Hk
-map <Down> Lj
-map <Left> ^
-map <Right> $
 
 " 間違って押しやすいから
-map <C-@> <ESC>
+inoremap <C-@> <ESC>
 
 
 " 短縮入力のような
@@ -305,7 +295,7 @@ ab #- ####----------------------------------------------------------------------
 
 
 " 行、列のハイライト表示
-"set cursorline
+set cursorline
 "set cursorcolumn
 
 " フリーカーソル {block, insert, all, onemore}
@@ -348,25 +338,8 @@ endif
 " undo, redo の情報も保持させる
 set hidden
 
-
 " カーソルを点滅しないようにする
 set guicursor=a:blinkon0 
-
-
-" 色テーマ設定
-"colorscheme default
-"colorscheme desert
-"colorscheme darkblue
-"colorscheme delek
-"colorscheme morning 
-"colorscheme torte
-"colorscheme evening
-"colorscheme ron
-"colorscheme molokai
-"colorscheme railscasts
-"colorscheme pablo
-
-set bg=light
 
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
@@ -858,6 +831,7 @@ nnoremap # #N
 " 画面分割時に間違って:onlyしてしまうのを抑制
 map <C-w>o <ESC>
 
+" データは変えずに表示のみ変更する機能(jsonでkeyの""囲みを消したり)は見づらいのでオフ
 set conceallevel=0
 
 
@@ -931,21 +905,16 @@ let g:tagbar_type_go = {
 let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 
 
-" Airline {{{1
-"let g:airline_section_a = airline#section#create(['mode','','branch'])
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#show_buffers = 0
-"let g:airline#extensions#tabline#tab_nr_type = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-
-set guifont=Ricty\ Regular\ for\ Powerline:h14
-let g:Powerline_symbols = 'fancy'
-set t_Co=256
-let g:airline_theme='badwolf'
-let g:airline_left_sep = '⮀'
-let g:airline_right_sep = '⮂'
-let g:airline_linecolumn_prefix = '⭡'
-let g:airline_branch_prefix = '⭠'
-let g:airline#extensions#tabline#left_sep = '⮀'
-let g:airline#extensions#tabline#left_alt_sep = '⮀'
-" /=Airline }}}1
+" 色テーマ設定
+syntax on
+"colorscheme default
+"colorscheme desert
+"colorscheme darkblue
+"colorscheme delek
+"colorscheme morning 
+"colorscheme torte
+"colorscheme evening
+"colorscheme ron
+colorscheme molokai
+"colorscheme railscasts
+"colorscheme pablo
