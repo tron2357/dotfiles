@@ -102,7 +102,9 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'tomasr/molokai'
 
-
+" zencoding
+" <c-y>,で展開
+NeoBundle 'mattn/emmet-vim'
 
 call neobundle#end()
 
@@ -172,10 +174,18 @@ set showcmd
 "set matchpairs=<:>,(:),{:},[:]
 set matchpairs=(:),{:},[:]
 
-" アルファベットの切れ目で改行しないとか
-" その他 :h 'formatoptions' 参照
-" コメントをエンターとOのとき続けてコメント行にする
-set formatoptions=ro
+" 他のプラグインから上書きされるので指定しても意味なし
+" t textwidthを使ってテキストを自動折返しする。
+" c 現在のコメント指示を挿入して、textwidthを使ってコメントを自動折返しする。
+" r 挿入モードで<return>を打った後に、現在のコメント指示を自動的に挿入する。
+" o ノーマルモードで'o'、'O'を打った後に、現在のコメント指示を自動的に挿入する。
+" q "gq"によるコメントの整形を可能にする。
+" 2 テキストの整形処理時、段落の最初の行ではなく2番目の行のインデントをそれ以降の行に対して使う。
+" v 挿入モードでVi互換の自動折返しを使う 現在の挿入モードで入力された空白でのみ折返しが行われる。
+" b 'v'と同じ、ただし空白の入力か折返しマージンの前でのみ自動折返しをする。
+" l 挿入モードでは長い行は折り返されない。
+" default: tcq
+"set formatoptions-=croql
 
 " 保存ヒストリ数
 set history=500
@@ -380,8 +390,6 @@ let g:NERDTreeIgnore = ['\.swp$',
   \ '\.svn$',
   \ '\.git$'
   \ ]
-
-autocmd vimenter * NERDTree
 
 " 0は半角文字(1は全角文字(三角など)は階層がわかりづらい)
 let g:NERDTreeDirArrows = 0
