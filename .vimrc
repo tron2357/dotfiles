@@ -1,5 +1,8 @@
 "" .vimrc
 
+"set encoding=utf-8
+"scriptencoding utf-8
+
 " howto install NeoBundle
 "
 " 
@@ -37,7 +40,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 整形
 NeoBundle 'junegunn/vim-easy-align'
-"NeoBundle 'tsaleh/vim-align'
 
 " undo redo
 NeoBundle 'sjl/gundo.vim'
@@ -52,6 +54,9 @@ NeoBundle 'rking/ag.vim'
 
 " ファイルリネーム
 NeoBundle 'vim-scripts/renamer.vim'
+
+" markを表示
+NeoBundle 'kshenoy/vim-signature'
 
 " フォルダツリー
 NeoBundle 'scrooloose/nerdtree'
@@ -106,10 +111,8 @@ NeoBundle 'cohama/vim-smartinput-endwise'
 " sudoするとuniteが毎回エラー表示する分の対策
 NeoBundle 'vim-scripts/sudo.vim'
 
-" インデント(gvimだと動くが、indentLineと同じで行間が抜けている)
-"NeoBundle 'nathanaelkane/vim-indent-guides'
 " インデント(concealを使ったものでvimでも動く)
-"NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Yggdroot/indentLine'
 
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
@@ -121,33 +124,6 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'tomasr/molokai'
 
-" coffee script
-NeoBundle 'kchmck/vim-coffee-script'
-
-" TODO test-kitchenで使えるように修正する
-NeoBundle 't9md/vim-chef'
-
-" 軽量なpowerline
-" カラフルで良いがmosh接続先で残像が残るため使用しない
-"NeoBundle 'bling/vim-airline'
-
-" TODO linuxで保存時にエラーが出るから確認する
-" -> vimをコンパイルし直すとエラーが出なくなった。
-" -> aptitude build-dep vim と lua 有効にしたため？
-" use async generate ctags
-" NeoBundle 'Shougo/vimproc', {
-"       \ 'build' : {
-"       \     'mac' : 'make -f make_mac.mak',
-"       \     'unix' : 'make -f make_unix.mak',
-"       \    },
-"       \ }
-" NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-"       \ 'rev' : 'development',
-"       \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-"       \ 'autoload' : {
-"       \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-"       \   'unite_sources' : ['tags']
-"       \ }}
 
 
 call neobundle#end()
@@ -161,7 +137,6 @@ NeoBundleCheck
 
 
 "----------------------------------
-" 基本設定
 "
 
 
@@ -236,7 +211,6 @@ set listchars=eol:$,tab:>_
 set nolist
 
 "----------------------------------
-" 検索関連
 "
 " 検索結果をハイライト表示
 set hlsearch
@@ -308,33 +282,15 @@ set virtualedit=all
 " 画面点滅を消す
 set novisualbell
 
-" vimで設定しておくと表示がおかしくなるため、linesなどは使用しないようにする
 " ウインドウサイズ lines:縦 columns:横
 "set lines=40
 "set columns=100
 
 " ウインドウ表示位置
-winpos 10 0
+"winpos 10 0
 
 " フォント設定
 set guifont=Ricty\ 10
-
-
-" language messages en_US.UTF-8
-"set background=light
-
-if has("win32")
-	" フォント設定
-	set guifont=VL_ゴシック:h10:cSHIFTJIS
-	set linespace=0
-	" beep と画面フラッシュを消す(windows only)
-	set vb t_vb=
-	" 日本語IMEoff
-	set imi=0 ims=0
-	
-	set lines=40
-	set columns=120
-endif
 
 " 保存しなくてもファイルを切り替えることができ
 " undo, redo の情報も保持させる
@@ -346,141 +302,7 @@ set guicursor=a:blinkon0
 " デフォルトは guioptions=agimrLtT
 set guioptions=agimtT
 " ツールバーを消して起動
-set guioptions-=T
-
-" メニューバーを消して起動
-set guioptions-=m
-
-
-
-" ------------------------------------------------------------------------------
-" 配色のカスタマイズ
-" ------------------------------------------------------------------------------
-
-"" gnome-terminalの色設定で変えたほうが良い
-"" 赤地に白文字 
-"highlight search cterm=bold ctermfg=7 ctermbg=1 guifg=White guibg=Red
-"" 白地に赤文字
-"highlight todo cterm=bold ctermfg=1 ctermbg=8 guifg=Red guibg=White
-
-
-
-
-""""----------------------------------------------------------------------------
-""" 覚え書き
-""
-
-" そのファイル内のみに有効な設定
-" Javaファイルの場合( ts sts sw fdm 設定。 marker で {{{ }}} で折り畳み )
-" // vim:set tabstop=4:softtabstop=0:shiftwidth=4:foldmethod=marker
-
-
-" 一行に延々と書かれたHTMLファイルを見やすく改行( \n はごみが出力されるだけ)
-"  Carriage Return = \r, Line Feed = \n
-" :%s/\(<\/[^>]\+>\)/\1\r/g
-
-" 000..100 まで出力
-" :r! awk 'BEGIN{ for(i=0; i<=100; i++) printf("\%03d\n", i); }'
-
-" 空行削除(awk: NF １行のフィールド個数. NR 現在の行数. FS 区切り文字)
-" :%!awk 'NF > 0'
-" :%!sed -e '/^$/d'
-" :%g/^$/d
-" どれでもよい
-
-" \U 次の文字から \E までを大文字にするメタキャラクタ
-" 全てを大文字に置換( tr 'a-z' 'A-Z' のようなことをする )
-" :%s/\([a-z]\)/\U\1\E/g
-
-" \L 次の文字から \E までを小文字にするメタキャラクタ
-" 全てを小文字に置換( tr 'A-Z' 'a-z' のようなことをする )
-" :%s/\([A-Z]\)/\L\1\E/g
-
-" man の nmap をテキストにする
-" man nmap | col -bfx > nmap.man
-
-" HTML メールの本文を削除する
-" :% !sed -e '/<\(html\|HTML\)>/,/<\/\(html\|HTML\)>/d'
-
-" ヘルプ画面でのリンクの移動
-" <C-]> 移動し <C-t> で戻る
-
-" <TAB> を <SPACE> にする
-" :set expandtab とした後 :retab
-" スペースからタブへは戻せないみたい
-
-" 検索方法
-" /target\C -> target
-" /target\c -> [tT][aA][rR][gG][eE][tT]
-
-" 単語の切れ目で検索できる
-" /target\> -> aaa target bbb
-"			-> aaa targetbbb はヒットしない
-" /\<target -> aaa target bbb
-"			-> aaatarget bbb はヒットしない
-
-" オプションがどのファイルで設定されたかを表示
-" :verbose set tw 
-
-" インデントをスペースに置き換えたい
-" :set expandtab
-" とし、
-" :retab
-" で置き換えが可能。スペースからタブへはできないみたい
-
-" Windowsで再帰grep
-" :grep /S search_key target_file_or_directory
-"
-" Linuxで再帰grep
-" :grep -r search_key target_file_or_directory
-"
-" vim7内蔵のgrep
-" :vimgrep search_key file
-" 
-" grepの結果確認
-" :copen
-
-"Visual Studio で作成したファイルを開くと、ファイルの最初に ? が見えることがある。
-"これは、 :e ++enc=ucs-bom として開くとよい。
-"文字コードは、 UTF-8 で、 Byte Order Mark が付いているファイルという意味。
-
-
-
-" vimでrubyを便利に使う方法
-"
-" %で対応括弧へ飛ぶ方法。<C-X><C-O>で補完もできる
-" 1. gem install vim-ruby でvim-rubyインストール
-" 2. matchitをインストール http://www.vim.org/scripts/script.php?script_id=39
-"
-" rubyの構文チェックする方法
-" 1. $VIM/vimfiles/ftplugin に ruby.vim を作る。
-" 2. ruby.vim に、compiler ruby と書く。
-" map <F9> :make -c %<CR> としてから、<F9>押すと構文チェックができる。
-" エラーがあると、:cw でエラーが見え、該当個所へ飛べるようになる。
-" :cc [n]でn番目のエラー行にジャンプ
-" :cnで次のエラー行にジャンプ
-" :cNで前のエラー行にジャンプ
-" 
-"
-
-
-
-
-" pydictionの設定 omnifuncで保管機能が使えるようになる。
-" vimが+pythonでコンパイルされている必要有り。
-" 設定すると、*での単語指定がおかしくなるから使用しないことにする。
-"filetype plugin on
-"if has("win32")
-"	let g:pydiction_location = 'D:/app/vim72-kaoriya-w32j/vimfiles/ftplugin/pydiction/complete-dict'
-"endif
-"
-"let g:pydiction_menu_height = 20
-"
-"if has("autocmd")
-"	autocmd FileType python set complete+=k/D:/app/Vim/pydiction/pydiction iskeyword+=.,(
-"
-"endif "has"
-
+set guioptions-=Tm
 
 
 " ------------------------------------------------------------------------------
@@ -530,36 +352,23 @@ augroup MyGroup
 augroup END
 
 
-"" eclipseのxmlなどが赤くなりすぎて見づらいため使用しない
-"" スペースなどだけで終わる行をハイライト表示
-"augroup HighlightTrailingSpaces
-"  autocmd!
-"  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-"  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-"augroup END
-
 " ------------------------------------------------------------------------------
 " 新しくファイルを作ったときのテンプレ
 " ------------------------------------------------------------------------------
-
 "augroup MyTemplate
 "	autocmd!
 "	autocmd BufNewFile *.py 0r $HOME/.vim/skel/python
-"
-"
 "augroup END
 
 
 " ------------------------------------------------------------------------------
 " 保存時にシンタックスなどのチェック
 " ------------------------------------------------------------------------------
-
 " warn多いから面倒で使わなくなった
 "augroup MyCheck
 "	autocmd!
 "	autocmd BufWrite *.py w !pep8 %
 "augroup END
-
 
 
 " ------------------------------------------------------------------------------
@@ -583,7 +392,6 @@ nnoremap <F5> :GundoToggle<CR>
 " NERDTree
 " ------------------------------------------------------------------------------
 nnoremap <F6> :NERDTreeToggle<CR>
-
 
 " 表示しないもの
 let g:NERDTreeIgnore = ['\.swp$', 
@@ -618,14 +426,6 @@ let g:NERDTreeShowHidden = 1
 " ------------------------------------------------------------------------------
 "let g:tagbar_left = 1
 nnoremap <F7> :TagbarToggle<CR>
-
-" ------------------------------------------------------------------------------
-" neocomplcache
-" ------------------------------------------------------------------------------
-" 勝手にnoautoindentされるため使わなくなった
-
-"let g:neocomplcache_enable_at_startup = 1
-
 
 " ------------------------------------------------------------------------------
 " showmarks7(マークの可視化)
@@ -740,7 +540,6 @@ let g:quickrun_config = {
 \       "outputter/buffer/close_on_empty" : 1
 \   },
 \}
-map <F4> :QuickRun<CR>
 
 
 " vimdiff
@@ -784,9 +583,9 @@ augroup END
 nnoremap <expr>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
 
 " memolist
-map ,n  :MemoNew<CR>
-map ,l  :MemoList<CR>
-map ,g  :MemoGrep<CR>
+nnoremap ,n  :MemoNew<CR>
+nnoremap ,l  :MemoList<CR>
+nnoremap ,g  :MemoGrep<CR>
 
 let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_memo_suffix = "txt"
@@ -831,7 +630,8 @@ nnoremap # #N
 
 
 " 画面分割時に間違って:onlyしてしまうのを抑制
-map <C-w>o <ESC>
+noremap <C-w>o <ESC>
+noremap! <C-w>o <ESC>
 
 " データは変えずに表示のみ変更する機能(jsonでkeyの""囲みを消したり)は見づらいのでオフ
 set conceallevel=0
