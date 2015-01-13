@@ -170,6 +170,9 @@ set showmatch
 " 右下あたりに状態表示( 100G 等が出る )
 set showcmd
 
+" モードラインの有効化(// vim: set ft=json : のようなもの)
+set modeline
+
 " 括弧のパターン(追加すると % で対応に飛べる)
 "set matchpairs=<:>,(:),{:},[:]
 set matchpairs=(:),{:},[:]
