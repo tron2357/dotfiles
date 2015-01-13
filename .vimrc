@@ -90,7 +90,7 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-scripts/sudo.vim'
 
 " インデント(concealを使ったものでvimでも動く)
-NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'Yggdroot/indentLine'
 
 " バイナリエディタ
 NeoBundle 'Shougo/vinarise.vim'
@@ -162,7 +162,7 @@ set expandtab
 set showmode
 
 " 自動字下げ
-set cindent
+"set cindent
 
 " 括弧対応を強調
 set showmatch
