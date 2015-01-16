@@ -101,6 +101,7 @@ NeoBundle 'tpope/vim-rails'
 " color
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'w0ng/vim-hybrid'
 
 " zencoding
 " <c-y>,で展開
@@ -580,5 +581,7 @@ syntax on
 "colorscheme evening
 "colorscheme ron
 "colorscheme molokai
-colorscheme railscasts
+"colorscheme railscasts
 "colorscheme pablo
+colorscheme hybrid
+"colorscheme hybrid-light
