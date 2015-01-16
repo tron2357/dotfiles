@@ -284,7 +284,6 @@ set hidden
 set guicursor=a:blinkon0 
 
 " デフォルトは guioptions=agimrLtT
-set guioptions=agimtT
 " ツールバーを消して起動
 set guioptions-=Tm
 
