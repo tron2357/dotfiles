@@ -579,6 +579,6 @@ syntax on
 "colorscheme torte
 "colorscheme evening
 "colorscheme ron
-colorscheme molokai
-"colorscheme railscasts
+"colorscheme molokai
+colorscheme railscasts
 "colorscheme pablo
