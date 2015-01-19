@@ -99,9 +99,10 @@ NeoBundle 'Shougo/vinarise.vim'
 NeoBundle 'tpope/vim-rails'
 
 " color
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'tomasr/molokai'
+"NeoBundle 'jpo/vim-railscasts-theme'
+"NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " zencoding
 " <c-y>,で展開
@@ -574,14 +575,5 @@ let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 syntax on
 "colorscheme default
 "colorscheme desert
-"colorscheme darkblue
-"colorscheme delek
-"colorscheme morning 
-"colorscheme torte
-"colorscheme evening
-"colorscheme ron
-"colorscheme molokai
-"colorscheme railscasts
-"colorscheme pablo
 colorscheme hybrid
 "colorscheme hybrid-light
