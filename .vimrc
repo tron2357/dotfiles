@@ -248,9 +248,6 @@ vnoremap /s "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 " 間違って押しやすいから
 inoremap <C-@> <ESC>
 
-nnoremap <F5> :GundoToggle<CR>
-
-nnoremap <F6> :NERDTreeToggle<CR>
 " 短縮入力のような
 ab #- ####----------------------------------------------------------------------------
 
@@ -378,10 +375,17 @@ set directory=~/.vim
 " ------------------------------------------------------------------------------
 " Gundo用のツリー展開
 " ------------------------------------------------------------------------------
+" ツリーの開閉
+nnoremap ,u :GundoToggle<CR>
 
 " ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
+" 開いているファイルをツリーで表示
+nnoremap ,f :NERDTreeFind<CR>
+
+" ツリーの開閉
+nnoremap ,t :NERDTreeToggle<CR>
 
 " 表示しないもの
 let g:NERDTreeIgnore = ['\.swp$', 
@@ -476,6 +480,9 @@ set ttimeoutlen=70
 
 " vim7.4からundoを保存する.un~ファイルが出来るためまとめる
 set undodir=~/.vim
+
+" macのcrontabで指定しないと怒られる
+set backupskip=/tmp/*,/private/tmp/*
 
 " jsonでconcealが"を消してずれるので無効にする"
 let g:vim_json_syntax_conceal = 0
