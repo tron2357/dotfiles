@@ -70,8 +70,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 
-" 括弧補完(gvimでしか動かない)
-NeoBundle 'jiangmiao/auto-pairs'
+" 括弧補完(visula+Iなどで括弧補完がおかしい(macvimで確認))
+"NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'MetalPhaeton/easybracket-vim'
 
 " tagbar
 NeoBundle 'majutsushi/tagbar'
