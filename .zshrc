@@ -124,6 +124,8 @@ setopt pushd_ignore_dups
 # こうすると、 Ctrl-W でカーソル前の1単語を削除したとき、 / までで削除が止まる
 #WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# ctrl+sのロックをやめる(ctrl+sはctrl+qで復帰)
+stty stop undef
 
 # read local env
 [[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local
