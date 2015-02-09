@@ -127,6 +127,9 @@ setopt pushd_ignore_dups
 # ctrl+sのロックをやめる(ctrl+sはctrl+qで復帰)
 stty stop undef
 
+# lessの表示を残す(less -X file.txtでもよい)
+export LESS='-X'
+
 # read local env
 [[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local
 
