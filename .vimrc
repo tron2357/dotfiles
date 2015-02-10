@@ -109,6 +109,9 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'
 " <c-y>,で展開
 NeoBundle 'mattn/emmet-vim'
 
+" 末尾半角スペースの可視化(:FixWhitespace で削除)
+NeoBundle 'bronson/vim-trailing-whitespace'
+
 call neobundle#end()
 
 " Required:
