@@ -161,7 +161,7 @@ set number
 " tabは2スペース
 set tabstop=2
 set shiftwidth=2
-set softtabstop=2 
+set softtabstop=2
 set expandtab
 
 " ビジュアルモードかどうか見せる
@@ -284,7 +284,7 @@ set guifont=Ricty\ 10
 set hidden
 
 " カーソルを点滅しないようにする
-set guicursor=a:blinkon0 
+set guicursor=a:blinkon0
 
 " デフォルトは guioptions=agimrLtT
 " ツールバーを消して起動
@@ -327,10 +327,10 @@ augroup MyGroup
 	" rest
 	autocmd MyGroup BufNewFile,BufRead *.rst set  filetype=rest expandtab sw=2 ts=2 sts=2
 	autocmd MyGroup BufNewFile,BufRead *.rest set filetype=rest expandtab sw=2 ts=2 sts=2
-	autocmd MyGroup BufNewFile,BufRead *.page set filetype=rest expandtab sw=2 ts=2 sts=2 
+	autocmd MyGroup BufNewFile,BufRead *.page set filetype=rest expandtab sw=2 ts=2 sts=2
 
 	" yml(dotcloud)
-	autocmd MyGroup BufNewFile,BufRead *.yml set filetype=yaml expandtab sw=2 ts=2 sts=2 
+	autocmd MyGroup BufNewFile,BufRead *.yml set filetype=yaml expandtab sw=2 ts=2 sts=2
 
 	" ios(objective-c)
 	autocmd MyGroup BufNewFile,BufRead *.m set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
@@ -341,6 +341,9 @@ augroup MyGroup
 
 	" bats
 	autocmd MyGroup BufNewFile,BufRead *.bats set filetype=sh sw=2 ts=2 sts=2 et nocindent autoindent
+
+  " 保存時に末尾の半角スペースを強制削除する
+  autocmd MyGroup BufWritePre * FixWhitespace
 
 augroup END
 
@@ -392,7 +395,7 @@ nnoremap ,f :NERDTreeFind<CR>
 nnoremap ,t :NERDTreeToggle<CR>
 
 " 表示しないもの
-let g:NERDTreeIgnore = ['\.swp$', 
+let g:NERDTreeIgnore = ['\.swp$',
   \ '\~$',
   \ '\.pyc$',
   \ '\.pyo$',
@@ -568,14 +571,14 @@ let g:tagbar_type_go = {
 " 1. go get github.com/jstemmer/gotags
 " 2. gotags -R > tags
 
- 
+
 " golangでgd(vim-godef)でジャンプ(ウインドウ分割)(この紹介記事が多い)
 " 1. go get -v code.google.com/p/rog-go/exp/cmd/godef
 " 2. go install -v code.google.com/p/rog-go/exp/cmd/godef
 
 " godoc
 " go get code.google.com/p/go.tools/cmd/godoc
-" 
+"
 " godocでローカルにドキュメント($GOPATH以下)を立てる
 " godoc -http=:8888
 
