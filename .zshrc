@@ -160,8 +160,8 @@ alias find_gomi_jpg="find . -type f \( \
 alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
 
 # htmlやexeのようなゴミファイルを表示したり削除したり
-alias find_gomi_not_jpg="find_not_jpg" 
-alias find_gomi_not_jpg_rm="find_gomi_not_jpg -exec echo \"delete {}\" \; -exec rm {} \;" 
+alias find_gomi_not_jpg="find_not_jpg"
+alias find_gomi_not_jpg_rm="find_gomi_not_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
 
 # iterm tab
 iterm_tab_rename() {

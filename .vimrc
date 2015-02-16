@@ -105,6 +105,9 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
+" git diffを表示
+NeoBundle 'airblade/vim-gitgutter'
+
 " zencoding
 " <c-y>,で展開
 NeoBundle 'mattn/emmet-vim'
@@ -464,7 +467,8 @@ let g:syntastic_mode_map = {'mode':'active',
 " memolist
 nnoremap ,n  :MemoNew<CR>
 nnoremap ,l  :MemoList<CR>
-nnoremap ,g  :MemoGrep<CR>
+" agなど使うほうが便利
+"nnoremap ,g  :MemoGrep<CR>
 
 let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_memo_suffix = "txt"
@@ -506,6 +510,11 @@ nnoremap # #N
 " 通常の s ではなく :s とする
 " 1. 選択する
 " 2. '<,'>:s/\%Vaaa/bbb/g
+
+" gitgutter
+" 変更箇所へ飛ぶ
+nnoremap gn :GitGutterNextHunk<CR>
+nnoremap gp :GitGutterPrevHunk<CR>
 
 
 " 画面分割時に間違って:onlyしてしまうのを抑制
