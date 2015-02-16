@@ -513,6 +513,7 @@ nnoremap # #N
 
 " gitgutter
 " 変更箇所へ飛ぶ
+nnoremap ,gg :GitGutterToggle<CR>
 nnoremap gn :GitGutterNextHunk<CR>
 nnoremap gp :GitGutterPrevHunk<CR>
 
