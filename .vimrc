@@ -465,10 +465,10 @@ let g:syntastic_mode_map = {'mode':'active',
 
 
 " memolist
-nnoremap ,n  :MemoNew<CR>
-nnoremap ,l  :MemoList<CR>
+nnoremap ,mn  :MemoNew<CR>
+nnoremap ,ml  :MemoList<CR>
 " agなど使うほうが便利
-"nnoremap ,g  :MemoGrep<CR>
+nnoremap ,mg  :MemoGrep<CR>
 
 let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_memo_suffix = "txt"
@@ -513,12 +513,15 @@ nnoremap # #N
 
 " gitgutter
 " 変更箇所へ飛ぶ
-nnoremap ,gg :GitGutterToggle<CR>
-nnoremap gn :GitGutterNextHunk<CR>
-nnoremap gp :GitGutterPrevHunk<CR>
+nnoremap ,g :GitGutterToggle<CR>
+nnoremap ,n :GitGutterNextHunk<CR>
+nnoremap ,p :GitGutterPrevHunk<CR>
 
+" カーソルのハイライト
+nnoremap ,c :set cursorcolumn!<CR>
+"nnoremap ,cl :set cursorline!<CR>
 
-" 画面分割時に間違って:onlyしてしまうのを抑制
+" 画面分割時に間違って:onlyしてしまうのを抑制(tmuxのペイン間移動)
 noremap <C-w>o <ESC>
 noremap! <C-w>o <ESC>
 
