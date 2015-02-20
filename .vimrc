@@ -600,7 +600,25 @@ let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 
 " 色テーマ設定
 syntax on
-"colorscheme default
-"colorscheme desert
-colorscheme hybrid
-"colorscheme hybrid-light
+
+" if has("mac")
+" " mac用の設定
+" elseif has("unix")
+" " unix固有の設定
+" elseif has("win64")
+" " 64bit_windows固有の設定
+" elseif has("win32unix")
+" " Cygwin固有の設定
+" elseif has("win32")
+" " 32bit_windows固有の設定
+" endif
+
+if has('gui_running')
+" gvim
+  colorscheme default
+else
+  "colorscheme default
+  "colorscheme desert
+  colorscheme hybrid
+  "colorscheme hybrid-light
+endif
