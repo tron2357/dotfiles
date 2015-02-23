@@ -280,7 +280,7 @@ set novisualbell
 "winpos 10 0
 
 " フォント設定
-set guifont=Ricty\ 10
+set guifont=Ricty\ Diminished\ Discord\ Regular:h12
 
 " 保存しなくてもファイルを切り替えることができ
 " undo, redo の情報も保持させる
@@ -290,8 +290,8 @@ set hidden
 set guicursor=a:blinkon0
 
 " デフォルトは guioptions=agimrLtT
-" ツールバーを消して起動
-set guioptions-=Tm
+" visual copy: a, 右スクロールバー: r, 縦分割時左スクロールバー: L
+set guioptions=arL
 
 
 " rubyの%ジャンプ
