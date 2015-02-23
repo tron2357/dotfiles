@@ -395,7 +395,7 @@ nnoremap ,u :GundoToggle<CR>
 nnoremap ,f :NERDTreeFind<CR>
 
 " ツリーの開閉
-nnoremap ,t :NERDTreeToggle<CR>
+"nnoremap ,t :NERDTreeToggle<CR>
 
 " 表示しないもの
 let g:NERDTreeIgnore = ['\.swp$',
@@ -469,6 +469,11 @@ nnoremap ,mn  :MemoNew<CR>
 nnoremap ,ml  :MemoList<CR>
 " agなど使うほうが便利
 nnoremap ,mg  :MemoGrep<CR>
+
+" 日付の挿入
+" 2015-02-23 (月) 09:04:14
+" -------------------------
+nnoremap ,t i<C-R>=strftime("%Y-%m-%d (%a) %H:%M:%S")<CR><CR><ESC>25i-<ESC>a<CR>
 
 let g:memolist_path = "~/Dropbox/memo"
 "let g:memolist_memo_suffix = "txt"
