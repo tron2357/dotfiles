@@ -115,6 +115,16 @@ NeoBundle 'mattn/emmet-vim'
 " 末尾半角スペースの可視化(:FixWhitespace で削除)
 NeoBundle 'bronson/vim-trailing-whitespace'
 
+" クォートの切り替え
+" cs"' "を'に置き換え
+" ds" "を削除
+NeoBundle 'tpope/vim-surround'
+
+" 補完
+"NeoBundle 'Shougo/neocomplete'
+"NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet-snippets'
+
 call neobundle#end()
 
 " Required:
@@ -584,6 +594,41 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
+""""""""""""""""""""""""""""""
+" 挿入モード時、ステータスラインの色を変更
+""""""""""""""""""""""""""""""
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
+""""""""""""""""""""""""""""""
 
 " golangで<C-]>のタグジャンプ用tags作成
 " 1. go get github.com/jstemmer/gotags
