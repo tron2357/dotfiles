@@ -353,7 +353,8 @@ augroup MyGroup
 	autocmd MyGroup BufNewFile,BufRead *.page set filetype=rest expandtab sw=2 ts=2 sts=2
 
 	" yml(dotcloud)
-	autocmd MyGroup BufNewFile,BufRead *.yml set filetype=yaml expandtab sw=2 ts=2 sts=2
+	autocmd MyGroup BufNewFile,BufRead *.yml  set filetype=yaml autoindent expandtab sw=2 ts=2 sts=2
+	autocmd MyGroup BufNewFile,BufRead *.yaml set filetype=yaml autoindent expandtab sw=2 ts=2 sts=2
 
 	" ios(objective-c)
 	autocmd MyGroup BufNewFile,BufRead *.m set filetype=objc sw=4 ts=4 sts=4 cindent autoindent
