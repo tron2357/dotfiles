@@ -530,6 +530,10 @@ let g:vim_json_syntax_conceal = 0
 nnoremap * *N
 nnoremap # #N
 
+" タブ
+nnoremap tl :tabnext<CR>
+nnoremap th :tabprevious<CR>
+nnoremap td :tabclose<CR>
 
 " ビジュアルモードの選択部分のみ置換する
 " 通常の s ではなく :s とする
