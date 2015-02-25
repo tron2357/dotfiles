@@ -112,8 +112,10 @@ NeoBundle 'airblade/vim-gitgutter'
 " <c-y>,で展開
 NeoBundle 'mattn/emmet-vim'
 
-" 末尾半角スペースの可視化(:StripWhitespace で削除)
-NeoBundle 'ntpeters/vim-better-whitespace'
+" 末尾半角スペースの可視化(:FixWhitespace で削除)
+" ntpeters/vim-better-whitespace が高機能だがssh経由で赤色が出ない
+" 色設定を調整するのが面倒なのでvim-trailing-whitespaceを使う
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 " クォートの切り替え
 " cs"' "を'に置き換え
@@ -366,10 +368,8 @@ augroup MyGroup
 	" bats
 	autocmd MyGroup BufNewFile,BufRead *.bats set filetype=sh sw=2 ts=2 sts=2 et nocindent autoindent
 
-  " 保存時に末尾の半角スペースを強制削除する(既存ソース修正時に無関係な部分のdiff多くなる)
-  "autocmd MyGroup BufWritePre * StripWhitespace
-  "
-  " :ToggleStripWhitespaceOnSaveで有効にしておけば、:w時に末尾スペースが消える
+  " 保存時に末尾の半角スペースを強制削除する(既存ソースのものも消してしまいdiff多くなる)
+  ""autocmd MyGroup BufWritePre * FixWhitespace
 
 augroup END
 
