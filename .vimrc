@@ -122,6 +122,9 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " ds" "を削除
 NeoBundle 'tpope/vim-surround'
 
+" coffee-script
+NeoBundle 'kchmck/vim-coffee-script'
+
 " 補完
 "NeoBundle 'Shougo/neocomplete'
 "NeoBundle 'Shougo/neosnippet'
@@ -334,6 +337,9 @@ augroup MyGroup
 	autocmd MyGroup BufNewFile,BufRead *.rb  set filetype=ruby  et sw=2 ts=2 sts=2 nocindent autoindent
 	autocmd MyGroup BufNewFile,BufRead *.erb set filetype=eruby et sw=2 ts=2 sts=2 nocindent autoindent
 	autocmd MyGroup BufNewFile,BufRead .pryrc  set filetype=ruby  et sw=2 ts=2 sts=2 nocindent autoindent
+
+  " coffee-script
+  autocmd MyGroup BufNewFile,BufRead *.bats set filetype=coffee sw=2 ts=2 sts=2 et nocindent autoindent
 
 	" python settings
 	autocmd MyGroup BufNewFile,BufRead *.py set filetype=python sw=4 ts=4 sts=4 nocindent autoindent
