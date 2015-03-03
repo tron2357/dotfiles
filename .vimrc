@@ -61,7 +61,9 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'vim-scripts/DrawIt'
 
 " 保存時の構文チェッカ
-" javascriptなら npm で jshint 入れておけばOK
+" javascript : npm install -g jshint
+"     coffee : npm install -g coffeelint
+"         go : go get github.com/golang/lint
 NeoBundle 'scrooloose/syntastic'
 
 " javascript
