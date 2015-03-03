@@ -48,6 +48,9 @@ NeoBundle 'kshenoy/vim-signature'
 " フォルダツリー
 NeoBundle 'scrooloose/nerdtree'
 
+" コメント
+NeoBundle 'tyru/caw.vim'
+
 " rubyでend補完
 NeoBundle 'tpope/vim-endwise'
 
@@ -651,6 +654,10 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
+
+" コメントのトグル
+vmap ,c <Plug>(caw:i:toggle)
+
 """"""""""""""""""""""""""""""
 
 " golangで<C-]>のタグジャンプ用tags作成
