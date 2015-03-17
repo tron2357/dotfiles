@@ -130,6 +130,9 @@ NeoBundle 'tpope/vim-surround'
 " coffee-script
 NeoBundle 'kchmck/vim-coffee-script'
 
+" protocolbuffer syntax color
+NeoBundle 'uarun/vim-protobuf'
+
 " 補完
 "NeoBundle 'Shougo/neocomplete'
 "NeoBundle 'Shougo/neosnippet'
@@ -321,7 +324,7 @@ set guicursor=a:blinkon0
 
 " デフォルトは guioptions=agimrLtT
 " visual copy: a, 右スクロールバー: r, 縦分割時左スクロールバー: L
-set guioptions=arL
+set guioptions=rL
 
 
 " rubyの%ジャンプ
@@ -545,9 +548,10 @@ nnoremap * *N
 nnoremap # #N
 
 " タブ
+nnoremap tn :tabnew<CR>
 nnoremap tl :tabnext<CR>
 nnoremap th :tabprevious<CR>
-nnoremap td :tabclose<CR>
+nnoremap tq :tabclose<CR>
 
 " ビジュアルモードの選択部分のみ置換する
 " 通常の s ではなく :s とする
