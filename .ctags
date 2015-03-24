@@ -2,6 +2,8 @@
 --exclude=.git
 --exclude=log
 
+--exclude=*_spec.rb
+
 --langdef=js
 --langmap=Javascript:.js
 --langmap=js:.js

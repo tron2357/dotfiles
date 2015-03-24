@@ -148,6 +148,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+" status line
+NeoBundle 'itchyny/lightline.vim'
+
 call neobundle#end()
 
 " Required:
@@ -257,7 +260,7 @@ set fileencoding=utf-8
 
 "ステータスラインにファイルタイプ・文字コード・改行文字を表示
 " powerline使うときは不要
-set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
+"set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
 
 " ------------------------------------------------------------------------------
 "  keymap
@@ -627,39 +630,39 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
-""""""""""""""""""""""""""""""
-" 挿入モード時、ステータスラインの色を変更
-""""""""""""""""""""""""""""""
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
+" " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
+" """"""""""""""""""""""""""""""
+" " 挿入モード時、ステータスラインの色を変更
+" """"""""""""""""""""""""""""""
+" let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+"
+" if has('syntax')
+"   augroup InsertHook
+"     autocmd!
+"     autocmd InsertEnter * call s:StatusLine('Enter')
+"     autocmd InsertLeave * call s:StatusLine('Leave')
+"   augroup END
+" endif
+"
+" let s:slhlcmd = ''
+" function! s:StatusLine(mode)
+"   if a:mode == 'Enter'
+"     silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+"     silent exec g:hi_insert
+"   else
+"     highlight clear StatusLine
+"     silent exec s:slhlcmd
+"   endif
+" endfunction
+"
+" function! s:GetHighlight(hi)
+"   redir => hl
+"   exec 'highlight '.a:hi
+"   redir END
+"   let hl = substitute(hl, '[\r\n]', '', 'g')
+"   let hl = substitute(hl, 'xxx', '', '')
+"   return hl
+" endfunction
 
 " コメントのトグル
 vmap ,c <Plug>(caw:i:toggle)
