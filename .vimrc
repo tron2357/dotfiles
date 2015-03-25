@@ -88,18 +88,11 @@ NeoBundle 'glidenote/memolist.vim'
 " json
 NeoBundle 'elzr/vim-json'
 
-" rubyでend補完
-"NeoBundle 'kana/vim-smartinput'
-"NeoBundle 'cohama/vim-smartinput-endwise'
-
-" sudoするとuniteが毎回エラー表示する分の対策
-NeoBundle 'vim-scripts/sudo.vim'
-
 " インデント(concealを使ったものでvimでも動く)
 "NeoBundle 'Yggdroot/indentLine'
 
 " バイナリエディタ
-NeoBundle 'Shougo/vinarise.vim'
+"NeoBundle 'Shougo/vinarise.vim'
 
 " rails
 NeoBundle 'tpope/vim-rails'
@@ -125,7 +118,7 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " クォートの切り替え
 " cs"' "を'に置き換え
 " ds" "を削除
-NeoBundle 'tpope/vim-surround'
+"NeoBundle 'tpope/vim-surround'
 
 " coffee-script
 NeoBundle 'kchmck/vim-coffee-script'
@@ -138,6 +131,13 @@ NeoBundle 'uarun/vim-protobuf'
 "NeoBundle 'Shougo/neosnippet'
 "NeoBundle 'Shougo/neosnippet-snippets'
 
+"" ruby補助
+"NeoBundleLazy 'marcus/rsense', {
+"      \ 'autoload': {
+"      \   'filetypes': 'ruby',
+"      \ },
+"      \ }
+
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -147,6 +147,11 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'gmake',
       \    },
       \ }
+
+""NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+""  \ 'insert' : 1,
+""  \ 'filetypes': 'ruby',
+""  \ }}
 
 " status line
 NeoBundle 'itchyny/lightline.vim'
@@ -162,7 +167,7 @@ NeoBundleCheck
 "----------------------------------
 "
 
-
+syntax on
 
 " バックスペースで文字削除
 set bs=2
@@ -687,9 +692,6 @@ vmap ,c <Plug>(caw:i:toggle)
 " vim-go tagbar
 let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 
-" 色テーマ設定
-syntax on
-
 " if has("mac")
 " " mac用の設定
 " elseif has("unix")
@@ -704,7 +706,7 @@ syntax on
 
 if has('gui_running')
 " gvim
-  colorscheme default
+  colorscheme desert
 else
   "colorscheme default
   "colorscheme desert
