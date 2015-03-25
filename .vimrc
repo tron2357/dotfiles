@@ -353,7 +353,7 @@ augroup MyGroup
   autocmd MyGroup BufNewFile,BufRead *.bats set filetype=coffee sw=2 ts=2 sts=2 et nocindent autoindent
 
   " python settings
-  autocmd MyGroup BufNewFile,BufRead *.py set filetype=python sw=4 ts=4 sts=4 nocindent autoindent
+  autocmd MyGroup BufNewFile,BufRead *.py set filetype=python et sw=2 ts=2 sts=2 nocindent autoindent
 
   " java(android) settings
   autocmd MyGroup BufNewFile,BufRead *.aidl set filetype=java
