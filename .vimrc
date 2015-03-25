@@ -126,17 +126,32 @@ NeoBundle 'kchmck/vim-coffee-script'
 " protocolbuffer syntax color
 NeoBundle 'uarun/vim-protobuf'
 
-" 補完
-"NeoBundle 'Shougo/neocomplete'
 "NeoBundle 'Shougo/neosnippet'
 "NeoBundle 'Shougo/neosnippet-snippets'
 
-"" ruby補助
+NeoBundle 'Shougo/neocomplete'
+" neocomplete用設定
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_ignore_case = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns._ = '\h\w*'
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+"" ruby補完(効かないような気がする)
 "NeoBundleLazy 'marcus/rsense', {
 "      \ 'autoload': {
 "      \   'filetypes': 'ruby',
 "      \ },
 "      \ }
+"
+"NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+"  \ 'insert' : 1,
+"  \ 'filetypes': 'ruby',
+"  \ }}
 
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -147,11 +162,6 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'gmake',
       \    },
       \ }
-
-""NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
-""  \ 'insert' : 1,
-""  \ 'filetypes': 'ruby',
-""  \ }}
 
 " status line
 NeoBundle 'itchyny/lightline.vim'
