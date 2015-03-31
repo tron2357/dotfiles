@@ -19,7 +19,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
 " ------------------------------------------------------------------------------
 "  plugin
 " ------------------------------------------------------------------------------
@@ -115,11 +114,6 @@ NeoBundle 'mattn/emmet-vim'
 " 色設定を調整するのが面倒なのでvim-trailing-whitespaceを使う
 NeoBundle 'bronson/vim-trailing-whitespace'
 
-" クォートの切り替え
-" cs"' "を'に置き換え
-" ds" "を削除
-"NeoBundle 'tpope/vim-surround'
-
 " coffee-script
 NeoBundle 'kchmck/vim-coffee-script'
 
@@ -129,17 +123,22 @@ NeoBundle 'uarun/vim-protobuf'
 "NeoBundle 'Shougo/neosnippet'
 "NeoBundle 'Shougo/neosnippet-snippets'
 
-NeoBundle 'Shougo/neocomplete'
-" neocomplete用設定
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+if v:version > 703 && has('lua')
+  NeoBundle 'Shougo/neocomplete'
+  " neocomplete用設定
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_ignore_case = 1
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
+  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+else
+  " https://github.com/Shougo/neocomplcache.vim
+  " 設定が多いので使うときに作る
 endif
-let g:neocomplete#keyword_patterns._ = '\h\w*'
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "" ruby補完(効かないような気がする)
 "NeoBundleLazy 'marcus/rsense', {
