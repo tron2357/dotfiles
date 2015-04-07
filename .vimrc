@@ -683,21 +683,6 @@ vmap ,c <Plug>(caw:i:toggle)
 
 """"""""""""""""""""""""""""""
 
-" golangで<C-]>のタグジャンプ用tags作成
-" 1. go get github.com/jstemmer/gotags
-" 2. gotags -R > tags
-
-
-" golangでgd(vim-godef)でジャンプ(ウインドウ分割)(この紹介記事が多い)
-" 1. go get -v code.google.com/p/rog-go/exp/cmd/godef
-" 2. go install -v code.google.com/p/rog-go/exp/cmd/godef
-
-" godoc
-" go get code.google.com/p/go.tools/cmd/godoc
-"
-" godocでローカルにドキュメント($GOPATH以下)を立てる
-" godoc -http=:8888
-
 " vim-go tagbar
 let g:go_gotags_bin=$GOPATH . "/bin/gotags"
 
