@@ -602,13 +602,13 @@ set conceallevel=0
 " golang
 " 1. install go commands
 "   go get code.google.com/p/go.tools/cmd/goimports
-"   go get code.google.com/p/go.tools/cmd/godoc
-"   go get code.google.com/p/go.tools/cmd/vet
-"   go get code.google.com/p/go.tools/cmd/cover
-"   go get github.com/nsf/gocode
-"   go get github.com/golang/lint
 "   go get code.google.com/p/rog-go/exp/cmd/godef
+"   go get github.com/golang/lint
 "   go get github.com/jstemmer/gotags
+"   go get github.com/nsf/gocode
+"   go get golang.org/x/tools/cmd/cover
+"   go get golang.org/x/tools/cmd/godoc
+"   go get golang.org/x/tools/cmd/vet
 
 " 2. add .zshrc
 "   [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
