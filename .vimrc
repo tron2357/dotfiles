@@ -156,9 +156,11 @@ nnoremap <silent> ,uf :<C-u>UniteWithCurrentDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-nnoremap <silent> ,ug  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " grep結果の再表示
-nnoremap <silent> ,ur  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
+
+nnoremap <silent> ,u  :<C-u>Unite<CR>
 
 if executable('pt')
   let g:unite_source_grep_command = 'pt'
