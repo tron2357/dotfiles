@@ -29,15 +29,14 @@ NeoBundle 'junegunn/vim-easy-align'
 " undo redo
 NeoBundle 'sjl/gundo.vim'
 
-" unite grep使うので不要"
-" "" 高速なgrep
-" "NeoBundle 'mileszs/ack.vim'
-" "
-" "" ackより高速らしい
-" "" the_silver_searcher
-" "" mac:   brew install the_silver_searcher
-" "" linux: apt-get install silversearcher-ag
-" "NeoBundle 'rking/ag.vim'
+" 高速なgrep
+NeoBundle 'mileszs/ack.vim'
+
+" ackより高速らしい
+" the_silver_searcher
+" mac:   brew install the_silver_searcher
+" linux: apt-get install silversearcher-ag
+NeoBundle 'rking/ag.vim'
 
 " ファイルリネーム
 NeoBundle 'vim-scripts/renamer.vim'
@@ -149,17 +148,26 @@ NeoBundle 'basyura/unite-rails'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
+
+" yankバッファ一覧
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 "nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+
+" pwdのフォルダから探す
 nnoremap <silent> ,uf :<C-u>UniteWithCurrentDir -buffer-name=files file<CR>
-"nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+
+" 開いたファイルのあるフォルダから探す
+nnoremap <silent> ,uc :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+
 "nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
+" grep
 nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " grep結果の再表示
 nnoremap <silent> ,ur :<C-u>UniteResume search-buffer<CR>
 
+" unite起動
 nnoremap <silent> ,u<CR> :<C-u>Unite<CR>
 nnoremap <silent> ,u<SPACE> :<C-u>Unite<CR>
 
