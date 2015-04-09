@@ -113,6 +113,8 @@ NeoBundle 'mattn/emmet-vim'
 " ntpeters/vim-better-whitespace が高機能だがssh経由で赤色が出ない
 " 色設定を調整するのが面倒なのでvim-trailing-whitespaceを使う
 NeoBundle 'bronson/vim-trailing-whitespace'
+" uniteで赤くなるため無効にする"
+let g:extra_whitespace_ignored_filetypes = ['unite']
 
 " coffee-script
 NeoBundle 'kchmck/vim-coffee-script'
@@ -139,6 +141,16 @@ else
   " https://github.com/Shougo/neocomplcache.vim
   " 設定が多いので使うときに作る
 endif
+
+NeoBundle 'Shougo/unite.vim'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
 "" ruby補完(効かないような気がする)
 "NeoBundleLazy 'marcus/rsense', {
@@ -440,7 +452,7 @@ set directory=~/.vim
 " Gundo用のツリー展開
 " ------------------------------------------------------------------------------
 " ツリーの開閉
-nnoremap ,u :GundoToggle<CR>
+""nnoremap ,u :GundoToggle<CR>
 
 " ------------------------------------------------------------------------------
 " NERDTree
