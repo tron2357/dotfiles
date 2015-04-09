@@ -29,14 +29,15 @@ NeoBundle 'junegunn/vim-easy-align'
 " undo redo
 NeoBundle 'sjl/gundo.vim'
 
-" 高速なgrep
-NeoBundle 'mileszs/ack.vim'
-
-" ackより高速らしい
-" the_silver_searcher
-" mac:   brew install the_silver_searcher
-" linux: apt-get install silversearcher-ag
-NeoBundle 'rking/ag.vim'
+" unite grep使うので不要"
+" "" 高速なgrep
+" "NeoBundle 'mileszs/ack.vim'
+" "
+" "" ackより高速らしい
+" "" the_silver_searcher
+" "" mac:   brew install the_silver_searcher
+" "" linux: apt-get install silversearcher-ag
+" "NeoBundle 'rking/ag.vim'
 
 " ファイルリネーム
 NeoBundle 'vim-scripts/renamer.vim'
@@ -154,6 +155,21 @@ nnoremap <silent> ,uf :<C-u>UniteWithCurrentDir -buffer-name=files file<CR>
 "nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+nnoremap <silent> ,ug  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" grep結果の再表示
+nnoremap <silent> ,ur  :<C-u>UniteResume search-buffer<CR>
+
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+elseif executable('ag')
+  let g:unite_source_grep_command = 'ag'
+endif
+
+let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 200
+
 
 "" ruby補完(効かないような気がする)
 "NeoBundleLazy 'marcus/rsense', {
