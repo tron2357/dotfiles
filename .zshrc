@@ -80,12 +80,10 @@ setopt complete_aliases
 # alias
 alias ll='ls -l'
 alias l='ls -l'
-alias rm='trash'
+[ -e `which trash` ] && alias rm='trash'
 alias vi='vim'
 alias info='info --vi-keys'
 alias ren='vim -c Renamer'
-
-which ack > /dev/null 2>&1 || alias ack='ack-grep'
 
 export EDITOR=vim
 
@@ -127,61 +125,5 @@ setopt pushd_ignore_dups
 # ctrl+sのロックをやめる(ctrl+sはctrl+qで復帰)
 stty stop undef
 
-
 # read local env
 [[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local
-
-
-# jpg表示
-alias find_jpg="find . -type f -iname \"*.jpg\""
-
-# jpgのexif情報などを削除(TODO: 何故かサイズが大きくなることがあるため調査する)
-alias find_jpg_strip="find_jpg -exec echo {} \; -exec mogrify -strip {} \;"
-
-# jpg以外のファイル一覧を表示
-alias find_not_jpg="find . -type f -not -name \"*.jpg\""
-
-# jpg以外のファイルをjpgに変換する
-alias find_not_jpg_convert="find_not_jpg -exec echo {} \; -exec mogrify -format jpg {} \; -exec rm {} \;"
-
-# 広告的なゴミファイルを表示したり削除したり
-alias find_gomi_jpg="find . -type f \( \
-      -iname \"*cred*\" \
-  -or -iname \"*core*\" \
-  -or -iname \"*vslc*\" \
-  -or -iname \"*zfpage*\" \
-  -or -iname \"*net*\" \
-  -or -iname \"*untitled*\" \
-  -or -iname \"*kou1koku*\" \
-  -or -iname \"*new_shoutout*\" \
-  -or -iname \"*_disclaimer*\" \
-  -or -iname \"*_soon.*\" \
-  \)"
-alias find_gomi_jpg_rm="find_gomi_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
-
-# htmlやexeのようなゴミファイルを表示したり削除したり
-alias find_gomi_not_jpg="find_not_jpg"
-alias find_gomi_not_jpg_rm="find_gomi_not_jpg -exec echo \"delete {}\" \; -exec rm {} \;"
-
-# iterm tab
-iterm_tab_rename() {
-  echo -ne "\033]0;${1}\007"
-}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# gud curl /v2/apps を見やすくパース
-# usage: gud curl /v2/apps | pgud
-pgud() {
-  echo "`cat -`" | jq -c '.resources[]|
-  {
-    guid:          .metadata.guid,
-    name:          .entity.name,
-    buildpack:     .entity.detected_buildpack,
-    auto_update:   .entity.auto_update,
-    state:         .entity.state,
-    updated_at:    .metadata.updated_at,
-    package_state: .entity.package_state
-  }'
-}
