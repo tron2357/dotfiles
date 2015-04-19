@@ -125,5 +125,14 @@ setopt pushd_ignore_dups
 # ctrl+sのロックをやめる(ctrl+sはctrl+qで復帰)
 stty stop undef
 
+# docker
+docker_rm_container() {
+  docker rm `docker ps -a -q`
+}
+docker_rm_images() {
+  docker rmi $(docker images | awk '/^<none>/ { print $3 }')
+}
+alias dc=docker-compose
+
 # read local env
 [[ -s $HOME/.shenv_local ]] && source $HOME/.shenv_local
